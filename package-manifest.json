@@ -1,0 +1,157 @@
+{
+  "package": "AI Software Development Company for Antigravity",
+  "version": "1.0.0",
+  "agent_count": 28,
+  "agents": [
+    {
+      "name": "cto-team-leader",
+      "description": "Chief Technology Officer and team leader"
+    },
+    {
+      "name": "business-analyst",
+      "description": "Business analyst for discovery, requirements, processes, and acceptance criteria"
+    },
+    {
+      "name": "product-manager",
+      "description": "Product manager for product strategy, scope, roadmap, and prioritization"
+    },
+    {
+      "name": "solution-architect",
+      "description": "Solution architect for system design and technology selection"
+    },
+    {
+      "name": "ui-ux-designer",
+      "description": "UI/UX designer for research, interaction design, accessibility, and visual systems"
+    },
+    {
+      "name": "frontend-developer",
+      "description": "Frontend engineer for web user interfaces"
+    },
+    {
+      "name": "backend-developer",
+      "description": "Backend engineer for services, domain logic, and application security"
+    },
+    {
+      "name": "mobile-developer",
+      "description": "Mobile engineer for Android and iOS applications"
+    },
+    {
+      "name": "database-engineer",
+      "description": "Database engineer for data modeling, migrations, integrity, and performance"
+    },
+    {
+      "name": "qa-testing-engineer",
+      "description": "Independent QA engineer for verification and release quality"
+    },
+    {
+      "name": "devsecops-security-engineer",
+      "description": "DevSecOps engineer for secure CI/CD and software supply chain"
+    },
+    {
+      "name": "code-reviewer",
+      "description": "Independent code reviewer for correctness, maintainability, and risk"
+    },
+    {
+      "name": "technical-writer",
+      "description": "Technical writer for product, API, operator, and user documentation"
+    },
+    {
+      "name": "desktop-application-developer",
+      "description": "Desktop engineer for Windows and Linux applications"
+    },
+    {
+      "name": "api-integration-specialist",
+      "description": "API and integration specialist for contracts and external systems"
+    },
+    {
+      "name": "cybersecurity-specialist",
+      "description": "Cybersecurity specialist for threat modeling and security assessment"
+    },
+    {
+      "name": "performance-engineer",
+      "description": "Performance engineer for profiling, load testing, and scalability"
+    },
+    {
+      "name": "cloud-infrastructure-engineer",
+      "description": "Cloud and infrastructure engineer for cloud, on-premises, and operations"
+    },
+    {
+      "name": "ai-ml-engineer",
+      "description": "AI and machine-learning engineer for AI-enabled products"
+    },
+    {
+      "name": "release-manager",
+      "description": "Release manager for packaging, release readiness, and deployment coordination"
+    },
+    {
+      "name": "social-media-product-marketing",
+      "description": "Social media and product marketing manager for ongoing go-to-market"
+    },
+    {
+      "name": "presentation-sales-enablement",
+      "description": "Product presentation and sales enablement specialist"
+    },
+    {
+      "name": "skills-research-discovery",
+      "description": "AI skills research and discovery specialist"
+    },
+    {
+      "name": "humanization-editorial",
+      "description": "Humanization and editorial specialist for natural, accurate communication"
+    },
+    {
+      "name": "market-research-competitor-intelligence",
+      "description": "Market research and competitor intelligence specialist identifying competitors, evidence-backed product weaknesses, customer pain points, and differentiated product opportunities."
+    },
+    {
+      "name": "brand-identity-logo-designer",
+      "description": "Brand identity, naming, and logo designer specializing in product naming, brand guidelines, color palettes, typography, and logo/icon generation briefs for image-generator."
+    },
+    {
+      "name": "finops-cost-pricing-strategist",
+      "description": "FinOps, infrastructure cost control, and product pricing strategist specializing in cloud TCO modeling, third-party API/LLM token economics, unit economics (COGS, CAC, LTV), and tiered pricing package generation."
+    },
+    {
+      "name": "software-license-compliance-specialist",
+      "description": "Software licensing, entitlement, and compliance specialist defining product codes/SKUs, license types, license request mechanisms, and License Generator Server contracts, alongside open-source license audits and EULA authoring."
+    }
+  ],
+  "languages": [
+    "English (Default)",
+    "Arabic (Upon request)",
+    "multilingual when required"
+  ],
+  "platforms": [
+    "web",
+    "Windows desktop",
+    "Linux desktop",
+    "Android",
+    "iOS",
+    "API/backend",
+    "ERP/CRM",
+    "AI",
+    "SaaS",
+    "automation",
+    "e-commerce",
+    "internal business apps",
+    "cross-platform",
+    "games"
+  ],
+  "approval_gates": [
+    "pre-coding agreement (product name, logo, owner company name)",
+    "production deployment",
+    "destructive database changes",
+    "production infrastructure changes",
+    "major architectural changes",
+    "paid services/subscriptions",
+    "scope/budget changes",
+    "security policy changes",
+    "third-party skill installation"
+  ],
+  "quality": {
+    "critical_business_logic_unit_test_coverage_minimum_percent": 90,
+    "security_assessment_each_release": true,
+    "continuous_dependency_vulnerability_scanning": true,
+    "independent_qa_and_code_review": true
+  }
+}

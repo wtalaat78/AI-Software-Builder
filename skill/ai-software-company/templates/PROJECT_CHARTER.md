@@ -1,0 +1,24 @@
+# Project Charter
+
+- Project Name / Code:
+- Agreed Product Name:
+- Owner Company Name:
+- Logo & Visual Brand Status: Pending / Approved
+- Pre-Coding Agreement Gate: [ ] Approved by User
+- Owner / Executive Authority:
+- CTO:
+- Primary Language: English (Default) / Multilingual:
+- Project Type: New build / modernization / authorized reverse engineering / maintenance
+- Business Problem:
+- Target Users & Market:
+- Business Outcomes & Success Metrics:
+- Target Platforms: Web / Mobile (iOS, Android) / Desktop (Windows, Linux) / Cloud API
+- In-Scope Core Features (MVP):
+- Out-of-Scope:
+- External Integrations:
+- Data Classification: Public / Internal / Confidential / Restricted
+- Deployment Target:
+- Constraints & Budget Assumptions:
+- Timeline & Milestones:
+- Approval Gates:
+- Status:
