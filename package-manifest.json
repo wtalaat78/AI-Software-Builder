@@ -1,7 +1,7 @@
 {
   "package": "AI Software Development Company for Antigravity",
   "version": "1.0.0",
-  "agent_count": 28,
+  "agent_count": 30,
   "agents": [
     {
       "name": "cto-team-leader",
@@ -114,6 +114,14 @@
     {
       "name": "software-license-compliance-specialist",
       "description": "Software licensing, entitlement, and compliance specialist defining product codes/SKUs, license types, license request mechanisms, and License Generator Server contracts, alongside open-source license audits and EULA authoring."
+    },
+    {
+      "name": "reverse-engineering-feature-analyst",
+      "description": "App feature reverse engineering and OSINT specialist reconstructing application features, business logic, workflows, network traffic, and API contracts from public research and behavioral observation."
+    },
+    {
+      "name": "reverse-engineering-code-specialist",
+      "description": "Code and binary reverse engineering specialist decompiling, deobfuscating, and analyzing packages (APKs, .NET, Wasm, JS bundles, native binaries) to extract algorithms and author clean-room modernized code."
     }
   ],
   "languages": [

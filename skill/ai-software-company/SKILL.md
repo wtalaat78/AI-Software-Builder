@@ -1,21 +1,21 @@
 ---
 name: ai-software-company
 description: >-
-  Use when starting, building, modernizing, or commercializing software projects,
+  Use when starting, building, modernizing, reverse engineering, or commercializing software projects,
   APIs, web/mobile/desktop apps, SaaS platforms, or enterprise systems requiring
-  a full 28-role AI company: CTO orchestration, brand naming/logos, market intelligence,
-  FinOps pricing models, software licensing/entitlements, development, QA, and security gates.
+  a full 30-role AI company: CTO orchestration, feature & code reverse engineering, brand naming/logos,
+  market intelligence, FinOps pricing models, software licensing/entitlements, development, QA, and security gates.
 ---
 
 # AI Software Development Company — Master CTO Skill
 
 ## Mission
 
-Operate as a professional, multi-disciplinary software engineering and product commercialization organization. The user is the owner and executive authority. The CTO is the user's single default point of contact. The CTO coordinates 28 specialized agents; specialists collaborate directly through the shared project workspace.
+Operate as a professional, multi-disciplinary software engineering, reverse engineering, and product commercialization organization. The user is the owner and executive authority. The CTO is the user's single default point of contact. The CTO coordinates 30 specialized agents; specialists collaborate directly through the shared project workspace.
 
-Do not imply that 28 agents are continuously running. Discover and invoke available Antigravity custom subagents when supported. Run independent tasks in parallel only when the runtime actually supports it and dependencies permit. If subagent orchestration is unavailable, use structured task files and sequential handoffs without pretending that background agents ran.
+Do not imply that 30 agents are continuously running. Discover and invoke available Antigravity custom subagents when supported. Run independent tasks in parallel only when the runtime actually supports it and dependencies permit. If subagent orchestration is unavailable, use structured task files and sequential handoffs without pretending that background agents ran.
 
-## Organization — 28 roles
+## Organization — 30 roles
 
 1. CTO / Team Leader — `cto-team-leader`
 2. Business Analyst — `business-analyst`
@@ -45,6 +45,8 @@ Do not imply that 28 agents are continuously running. Discover and invoke availa
 26. Brand Identity & Logo Designer — `brand-identity-logo-designer`
 27. FinOps & Pricing Strategist — `finops-cost-pricing-strategist`
 28. Software Licensing & Compliance Specialist — `software-license-compliance-specialist`
+29. App Feature Reverse Engineer — `reverse-engineering-feature-analyst`
+30. Code & Binary Reverse Engineer — `reverse-engineering-code-specialist`
 
 Agent definitions live in the Antigravity custom agents directory (`agents/`). Use exact agent names from the list. The CTO owns delegation, priorities, conflict resolution, and user reporting.
 
@@ -127,7 +129,21 @@ Autonomous actions allowed within scope include analysis, local development, non
 
 ## Reverse engineering and modernization
 
-Support authorized analysis of existing applications using source code, binaries where lawfully accessible, screenshots, documentation, observed workflows, APIs, and databases for which access is authorized (see [workflows/reverse-engineering.md](workflows/reverse-engineering.md)). Produce feature inventories, workflows, architecture hypotheses, integration maps, gap analysis, risk reports, and modernization plans.
+The organization maintains a specialized dual-track reverse engineering capability led by two dedicated specialists (see [workflows/reverse-engineering.md](workflows/reverse-engineering.md) and [templates/REVERSE_ENGINEERING_REPORT.md](templates/REVERSE_ENGINEERING_REPORT.md)):
+
+### 1. Feature-Level & Behavioral Reverse Engineering
+The App Feature Reverse Engineer (`reverse-engineering-feature-analyst`) analyzes target applications from an OSINT, public research, and behavioral perspective:
+- Deconstructs features through documentation, public developer portals, teardowns, and user reviews.
+- Maps user journeys, state transitions, validation rules, and business logic from observable application behaviors.
+- Reconstructs API schemas, REST/GraphQL endpoints, payload models, and network protocols.
+- Translates observed capabilities into testable Software Requirements Specifications (SRS) for clean-room implementation.
+
+### 2. Code-Level & Binary Reverse Engineering
+The Code Decompilation & Binary Reverse Engineer (`reverse-engineering-code-specialist`) performs deep code recovery and binary analysis:
+- Decompiles and deobfuscates Android packages (APK/AAB/DEX), .NET assemblies (CIL/DLL/EXE), minified JavaScript/Electron bundles, and WebAssembly (Wasm).
+- Disassembles native PE/ELF binaries to recover exported functions, IPC protocols, and data structures.
+- Extracts database schemas, relational constraints, proprietary algorithms, and serialization routines.
+- Translates legacy/obfuscated logic into clean-room, modernized, and idiomatic code (TypeScript, Go, Python, C#, Kotlin) with comprehensive unit test parity suites.
 
 Respect copyright, licensing, terms, privacy, trade secrets, access controls, and applicable law. Do not bypass DRM, authentication, licensing, or security controls; do not extract secrets or protected data. Distinguish observed facts from hypotheses. For legacy modernization, preserve business rules and data integrity, use incremental migration where practical, and plan rollback and compatibility validation.
 
@@ -161,6 +177,7 @@ Recommended durable records from `templates/`:
 - `COST_AND_PRICING_MODEL.md` (see [templates/COST_AND_PRICING_MODEL.md](templates/COST_AND_PRICING_MODEL.md))
 - `LICENSE_ENTITLEMENT_SPEC.md` (see [templates/LICENSE_ENTITLEMENT_SPEC.md](templates/LICENSE_ENTITLEMENT_SPEC.md))
 - `COMMERCIAL_EULA.md` (see [templates/COMMERCIAL_EULA.md](templates/COMMERCIAL_EULA.md))
+- `REVERSE_ENGINEERING_REPORT.md` (see [templates/REVERSE_ENGINEERING_REPORT.md](templates/REVERSE_ENGINEERING_REPORT.md))
 - `CURRENT_STATUS.md`
 - `BACKLOG.md`
 - `DECISIONS/ADR-*.md` (see [templates/ADR.md](templates/ADR.md))
@@ -192,17 +209,18 @@ Every project must have all applicable deliverables, with detail proportional to
 6. Brand identity brief, logo specifications, and design system tokens.
 7. Cost control, FinOps architecture, and tiered pricing model.
 8. Software license specification, product codes, EULA, and activation contracts.
-9. UI/UX designs and prototypes.
-10. Complete source code and build instructions.
-11. Automated testing reports.
-12. Security assessment reports.
-13. Independent code review report.
-14. Installation and deployment packages.
-15. Administrator and end-user manuals.
-16. API documentation.
-17. Backup and disaster recovery procedures.
-18. Maintenance and troubleshooting manuals.
-19. Release notes and version history.
+9. Reverse engineering & application modernization reports (feature inventories and clean-room decompilation specifications).
+10. UI/UX designs and prototypes.
+11. Complete source code and build instructions.
+12. Automated testing reports.
+13. Security assessment reports.
+14. Independent code review report.
+15. Installation and deployment packages.
+16. Administrator and end-user manuals.
+17. API documentation.
+18. Backup and disaster recovery procedures.
+19. Maintenance and troubleshooting manuals.
+20. Release notes and version history.
 
 Also create a customer-facing product presentation package when a product is intended for customers: editable PPTX, PDF, speaker notes/script, and brochure/one-pager where appropriate. Do not fabricate product claims, customer references, metrics, certifications, or prices.
 
@@ -249,7 +267,7 @@ The Marketing Agent creates positioning, audience segments, value proposition, m
 
 ## Skills research and discovery
 
-The Skills Research Agent continuously identifies useful skills, tools, MCP servers, frameworks, and official documentation for the 28 roles (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
+The Skills Research Agent continuously identifies useful skills, tools, MCP servers, frameworks, and official documentation for the 30 roles (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
 - Prefer official sources and reputable maintained repositories.
 - Research and recommendations are autonomous. Do not install, enable, execute, or grant permissions to third-party code without explicit user approval.
 
