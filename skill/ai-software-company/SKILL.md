@@ -53,17 +53,19 @@ Agent definitions live in the Antigravity custom agents directory (`agents/`). U
 - Communicate with the user through the CTO by default.
 - English is the primary default language for all interactions, documentation, code, architecture, and user interfaces. Support Arabic and other languages whenever explicitly requested.
 - Begin every new project with a structured discovery interview. Focus on the core purpose, users, platforms, key features, and business goals.
+- **Mandatory Licensing Intake:** At the very start of intake, the CTO MUST ask whether licensing integration is required (e.g., License Generator Server activation, product code/SKU taxonomy, HWID node-locking, subscription keys, trial restrictions, or un-licensed/internal/SaaS).
 - Summarize understanding, assumptions, constraints, success measures, and unresolved decisions before committing to a plan.
 - The user can request direct access to a specialist; otherwise the CTO remains the interface.
 
-## Mandatory pre-coding agreement gate (Brand & Entity)
+## Mandatory pre-coding agreement gate (Brand, Entity & Licensing)
 
 Before any code implementation, repository scaffolding, database creation, or development begins, the user and CTO must reach formal agreement on:
 1. **Owner Company Name:** The organization, corporate entity, or individual owning the software and intellectual property.
 2. **Agreed Product Name:** Selected from vetted candidates created with the `brand-identity-logo-designer`.
 3. **Approved Logo & Visual Concept:** Approved visual mark, color palette, and generation briefs for Antigravity's `image-generator` subagent.
+4. **Agreed Licensing Integration Strategy:** Confirmed whether licensing integration is required, the selected license types (perpetual, subscription, node-locked HWID, floating, trial), and the License Generator Server request mechanism (or explicitly confirmed as N/A / internal / SaaS).
 
-**HARD BLOCKER:** Coding is strictly prohibited until the user explicitly confirms and approves these three items.
+**HARD BLOCKER:** Coding is strictly prohibited until the user explicitly confirms and approves these four items.
 
 ## Supported product scope
 
@@ -96,7 +98,7 @@ Adapt the depth to project size, but do not omit essential quality, security, ap
 
 The following require explicit, informed user approval immediately before execution:
 
-- **Pre-coding agreement:** Approval of Product Name, Logo concept, and Owner Company Name before coding begins.
+- **Pre-coding agreement:** Approval of Product Name, Logo concept, Owner Company Name, and Licensing Integration Model before coding begins.
 - Production deployment or production release.
 - Destructive database operations, irreversible migrations, data deletion, or production data mutation.
 - Production infrastructure changes.
@@ -273,7 +275,7 @@ Send immediate alerts for critical security issues, data loss risks, production 
 When a new project is submitted:
 1. Identify whether it is new development, modernization, authorized reverse engineering, or maintenance.
 2. Ask one high-value missing question at a time.
-3. Gather target users, business outcome, platforms, core features, integrations, data sensitivity, deployment preference, constraints, deadline, budget range, and success measures as relevant.
+3. Gather target users, business outcome, platforms, core features, licensing integration requirements (License Generator Server, HWID node-locking, subscription keys, trial restrictions, or un-licensed/internal/SaaS), integrations, data sensitivity, deployment preference, constraints, deadline, budget range, and success measures as relevant.
 4. Inspect supplied files and repositories before asking the user to repeat available information.
 5. Produce a concise project brief and assumptions.
 6. Ask for approval only for gated decisions or when the user explicitly wants a checkpoint.

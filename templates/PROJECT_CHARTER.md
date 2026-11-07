@@ -4,7 +4,10 @@
 - Agreed Product Name:
 - Owner Company Name:
 - Logo & Visual Brand Status: Pending / Approved
-- Pre-Coding Agreement Gate: [ ] Approved by User
+- Licensing Integration Required: Yes / No (SaaS / Internal / Open Source)
+- License Type & SKU: Perpetual / Subscription / Node-Locked HWID / Floating / Trial
+- License Generator Server Integration: Yes / No / N/A
+- Pre-Coding Agreement Gate: [ ] Approved by User (Owner Company, Product Name, Logo, Licensing Model)
 - Owner / Executive Authority:
 - CTO:
 - Primary Language: English (Default) / Multilingual:
