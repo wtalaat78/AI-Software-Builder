@@ -23,7 +23,7 @@ if (-not (Test-Path $SkillTemplates)) { Write-Warning "Templates missing in skil
 
 $agentFiles = @(Get-ChildItem -LiteralPath $Agents -Filter "*.md" -File -ErrorAction SilentlyContinue)
 $ruleFiles = @(Get-ChildItem -LiteralPath $Rules -Filter "*.md" -File -ErrorAction SilentlyContinue)
-$expected = 30
+$expected = 31
 if ($agentFiles.Count -ne $expected) {
     Write-Warning "Expected $expected agent files in this package; found $($agentFiles.Count) in target. Existing custom agents may be present."
 }

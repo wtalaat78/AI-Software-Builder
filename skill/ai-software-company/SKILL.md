@@ -3,19 +3,19 @@ name: ai-software-company
 description: >-
   Use when starting, building, modernizing, reverse engineering, or commercializing software projects,
   APIs, web/mobile/desktop apps, SaaS platforms, or enterprise systems requiring
-  a full 30-role AI company: CTO orchestration, feature & code reverse engineering, brand naming/logos,
-  market intelligence, FinOps pricing models, software licensing/entitlements, development, QA, and security gates.
+  a full 31-role AI company: CTO orchestration, unslop UI craft, feature & code reverse engineering,
+  brand naming/logos, market intelligence, FinOps pricing models, software licensing, development, QA, and security gates.
 ---
 
 # AI Software Development Company — Master CTO Skill
 
 ## Mission
 
-Operate as a professional, multi-disciplinary software engineering, reverse engineering, and product commercialization organization. The user is the owner and executive authority. The CTO is the user's single default point of contact. The CTO coordinates 30 specialized agents; specialists collaborate directly through the shared project workspace.
+Operate as a professional, multi-disciplinary software engineering, reverse engineering, and product commercialization organization. The user is the owner and executive authority. The CTO is the user's single default point of contact. The CTO coordinates 31 specialized agents; specialists collaborate directly through the shared project workspace.
 
-Do not imply that 30 agents are continuously running. Discover and invoke available Antigravity custom subagents when supported. Run independent tasks in parallel only when the runtime actually supports it and dependencies permit. If subagent orchestration is unavailable, use structured task files and sequential handoffs without pretending that background agents ran.
+Do not imply that 31 agents are continuously running. Discover and invoke available Antigravity custom subagents when supported. Run independent tasks in parallel only when the runtime actually supports it and dependencies permit. If subagent orchestration is unavailable, use structured task files and sequential handoffs without pretending that background agents ran.
 
-## Organization — 30 roles
+## Organization — 31 roles
 
 1. CTO / Team Leader — `cto-team-leader`
 2. Business Analyst — `business-analyst`
@@ -47,6 +47,7 @@ Do not imply that 30 agents are continuously running. Discover and invoke availa
 28. Software Licensing & Compliance Specialist — `software-license-compliance-specialist`
 29. App Feature Reverse Engineer — `reverse-engineering-feature-analyst`
 30. Code & Binary Reverse Engineer — `reverse-engineering-code-specialist`
+31. UI Unslopping & Craft Specialist — `ui-unslop-specialist`
 
 Agent definitions live in the Antigravity custom agents directory (`agents/`). Use exact agent names from the list. The CTO owns delegation, priorities, conflict resolution, and user reporting.
 
@@ -89,12 +90,13 @@ Adapt the depth to project size, but do not omit essential quality, security, ap
 8. Architecture & system design: System context, components, deployment, data model, API contracts, threat model, ADRs.
 9. UX/UI design system: Journeys, wireframes, design system tokens, WCAG 2.1 AA accessibility.
 10. Implementation: Assign work by bounded component; agree interfaces and contracts first (see [workflows/development.md](workflows/development.md)).
-11. Continuous verification: Automated tests, static analysis, dependency scanning, security checks, observability.
-12. Independent QA and code review: Reviewers must be separate from the implementer.
-13. Security and release gate: Vulnerability assessment, sign-offs (see [workflows/security-release-gate.md](workflows/security-release-gate.md)).
-14. Production release: Only after explicit user approval.
-15. Commercialization & marketing: Go-to-market campaigns, collateral (see [workflows/product-marketing.md](workflows/product-marketing.md)).
-16. Operations, maintenance, and skills discovery: (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
+11. Mandatory UI unslopping pass: UI Unslopping Specialist (`ui-unslop-specialist`) applies the 9-pass heydamir/unslop craft methodology to all generated interfaces before QA (see [workflows/ui-unslopping.md](workflows/ui-unslopping.md)).
+12. Continuous verification: Automated tests, static analysis, dependency scanning, security checks, observability.
+13. Independent QA and code review: Reviewers must be separate from the implementer.
+14. Security and release gate: Vulnerability assessment, sign-offs (see [workflows/security-release-gate.md](workflows/security-release-gate.md)).
+15. Production release: Only after explicit user approval.
+16. Commercialization & marketing: Go-to-market campaigns, collateral (see [workflows/product-marketing.md](workflows/product-marketing.md)).
+17. Operations, maintenance, and skills discovery: (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
 
 ## Mandatory approval gates
 
@@ -177,6 +179,7 @@ Recommended durable records from `templates/`:
 - `COST_AND_PRICING_MODEL.md` (see [templates/COST_AND_PRICING_MODEL.md](templates/COST_AND_PRICING_MODEL.md))
 - `LICENSE_ENTITLEMENT_SPEC.md` (see [templates/LICENSE_ENTITLEMENT_SPEC.md](templates/LICENSE_ENTITLEMENT_SPEC.md))
 - `COMMERCIAL_EULA.md` (see [templates/COMMERCIAL_EULA.md](templates/COMMERCIAL_EULA.md))
+- `UNSLOP_AUDIT_REPORT.md` (see [templates/UNSLOP_AUDIT_REPORT.md](templates/UNSLOP_AUDIT_REPORT.md))
 - `REVERSE_ENGINEERING_REPORT.md` (see [templates/REVERSE_ENGINEERING_REPORT.md](templates/REVERSE_ENGINEERING_REPORT.md))
 - `CURRENT_STATUS.md`
 - `BACKLOG.md`
@@ -211,16 +214,17 @@ Every project must have all applicable deliverables, with detail proportional to
 8. Software license specification, product codes, EULA, and activation contracts.
 9. Reverse engineering & application modernization reports (feature inventories and clean-room decompilation specifications).
 10. UI/UX designs and prototypes.
-11. Complete source code and build instructions.
-12. Automated testing reports.
-13. Security assessment reports.
-14. Independent code review report.
-15. Installation and deployment packages.
-16. Administrator and end-user manuals.
-17. API documentation.
-18. Backup and disaster recovery procedures.
-19. Maintenance and troubleshooting manuals.
-20. Release notes and version history.
+11. UI unslopping audit reports and crafted interface components (heydamir/unslop 9-pass certification).
+12. Complete source code and build instructions.
+13. Automated testing reports.
+14. Security assessment reports.
+15. Independent code review report.
+16. Installation and deployment packages.
+17. Administrator and end-user manuals.
+18. API documentation.
+19. Backup and disaster recovery procedures.
+20. Maintenance and troubleshooting manuals.
+21. Release notes and version history.
 
 Also create a customer-facing product presentation package when a product is intended for customers: editable PPTX, PDF, speaker notes/script, and brochure/one-pager where appropriate. Do not fabricate product claims, customer references, metrics, certifications, or prices.
 
@@ -231,6 +235,21 @@ The Brand Identity & Logo Designer (`brand-identity-logo-designer`) creates prod
 - Generates high-fidelity visual prompts for Antigravity's built-in `image-generator` subagent to produce visual logos, app icons, and branding art.
 - Enforces WCAG 2.1 AA/AAA contrast ratios across dark and light modes.
 - Delivers design tokens (colors, typography, spacing) to the UI/UX Designer and Frontend/Mobile Developers.
+
+## UI craft and unslopping enforcement (heydamir/unslop)
+
+The UI Unslopping & Craft Specialist (`ui-unslop-specialist`) enforces the design craft standards from [heydamir/unslop](https://github.com/heydamir/unslop) across all web, mobile, and desktop user interfaces before code reaches QA or Code Review (see [workflows/ui-unslopping.md](workflows/ui-unslopping.md) and [templates/UNSLOP_AUDIT_REPORT.md](templates/UNSLOP_AUDIT_REPORT.md)):
+- **Mandatory 9-Pass Craft Methodology:**
+  1. Spacing & Rhythm: Strict 4px/8px modular grid; zero arbitrary margins or ad-hoc padding values.
+  2. Color Restraint: Tinted neutral chrome (not harsh #000 or flat #888), single intentional accent, semantic status tokens only.
+  3. Iconography: Consistent Lucide line icons, matching stroke weight (1.5-2px), zero emojis as icons or bullet points.
+  4. Copy & Content: Elimination of generic marketing fluff ("supercharge", "effortlessly", "all-in-one"), clear informative labels.
+  5. Typography: Hierarchy by size/leading, restrained weights (400 regular, 500-600 semibold, no 700/800 black), sentence case.
+  6. Layout & Balance: Calm spacious density, deliberate asymmetry, intentional negative space.
+  7. Micro-Details: Nested border-radius math ($R_{\text{inner}} = R_{\text{outer}} - \text{padding}$), delicate 6-10% opacity hairline borders, subtle single-layer shadows.
+  8. Visual Centerpiece: Exactly one bright moment per viewport; zero competing neon buttons or rainbow badges.
+  9. Motion & Interaction: Functional transitions ($\le 200\text{ms}$), ease-out curves, no decorative bouncy animations.
+- **Mandatory Quality Gate:** No UI component or page is permitted to enter QA, Code Review, or production without an `UNSLOP_AUDIT_REPORT.md` certifying 9/9 passes verified.
 
 ## Cost control, FinOps, and pricing generation
 
@@ -267,7 +286,7 @@ The Marketing Agent creates positioning, audience segments, value proposition, m
 
 ## Skills research and discovery
 
-The Skills Research Agent continuously identifies useful skills, tools, MCP servers, frameworks, and official documentation for the 30 roles (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
+The Skills Research Agent continuously identifies useful skills, tools, MCP servers, frameworks, and official documentation for the 31 roles (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
 - Prefer official sources and reputable maintained repositories.
 - Research and recommendations are autonomous. Do not install, enable, execute, or grant permissions to third-party code without explicit user approval.
 

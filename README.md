@@ -1,13 +1,13 @@
 # AI Software Development Company — Antigravity Edition
 
-This package implements a 30-role AI software development, reverse engineering, FinOps, brand creation, licensing, and product commercialization organization for Antigravity.
+This package implements a 31-role AI software development, reverse engineering, FinOps, brand creation, licensing, UI unslopping craft, and product commercialization organization for Antigravity.
 
 ## Contents
 - `skill/ai-software-company/SKILL.md`: Master CTO orchestration skill.
-- `agents/`: 30 specialized Antigravity custom agents (all formatted with validated YAML frontmatter).
+- `agents/`: 31 specialized Antigravity custom agents (all formatted with validated YAML frontmatter).
 - `rules/`: Company-wide safety, engineering quality (90% test coverage gate), project-memory, and bilingual rules.
-- `workflows/`: Repeatable project workflows (new project, development, brand & naming, pricing & FinOps, licensing & entitlement, reverse engineering, market research, marketing, security gate, skills discovery). Also mirrored inside `skill/ai-software-company/workflows/`.
-- `templates/`: Project charter, brand brief, FinOps & pricing model, licensing specification, commercial EULA, reverse engineering report, handoff, ADR, milestone, and release checklist templates. Also mirrored inside `skill/ai-software-company/templates/`.
+- `workflows/`: Repeatable project workflows (new project, development, ui-unslopping, brand & naming, pricing & FinOps, licensing & entitlement, reverse engineering, market research, marketing, security gate, skills discovery). Also mirrored inside `skill/ai-software-company/workflows/`.
+- `templates/`: Project charter, brand brief, FinOps & pricing model, licensing specification, commercial EULA, unslop audit report, reverse engineering report, handoff, ADR, milestone, and release checklist templates. Also mirrored inside `skill/ai-software-company/templates/`.
 - `scripts/`: Windows PowerShell install, verify, and uninstall scripts.
 - `PROMPT_TO_BUILD_AND_VERIFY.md`: Prompt to use inside Antigravity for validation and setup.
 
@@ -28,12 +28,13 @@ Workspace installation:
 Global paths follow the documented Antigravity locations under `~/.gemini/config/`. Workspace paths use `.agents/`. The package does not install third-party skills, MCP servers, paid services, or execute remote scripts.
 
 ## After installation
-- In the Antigravity App, open Customizations and confirm the master skill, rules, and all 30 agents are listed.
+- In the Antigravity App, open Customizations and confirm the master skill, rules, and all 31 agents are listed.
 - In the CLI, use `/skills` and `/agents`; if needed run `/skills reload` or start a new conversation.
 - Invoke `/ai-software-company` to start with the CTO intake workflow.
 - The custom agents can be delegated to when Antigravity's subagent orchestration is available.
 
 ## Specialized Roles & Capabilities
+- **UI Unslopping & Craft Specialist (`ui-unslop-specialist`)**: Enforces the 9-pass design craft methodology from [heydamir/unslop](https://github.com/heydamir/unslop) (spacing on 4px grid, quiet tinted-neutral chrome, single accent, Lucide line icons, concise copy, type scale, calm layout, micro-details, single bright moment) across all UI implementations as a mandatory gate before QA.
 - **App Feature Reverse Engineer (`reverse-engineering-feature-analyst`)**: Reverse engineers applications from an OSINT, public documentation, API telemetry, and black-box behavioral perspective, creating complete functional specifications and workflow maps.
 - **Code & Binary Reverse Engineer (`reverse-engineering-code-specialist`)**: Decompiles and deobfuscates compiled packages (APKs, .NET, Wasm, minified JS bundles, native binaries), extracts database schemas and proprietary algorithms, and authors clean-room modernized source code.
 - **Brand Identity & Logo Designer (`brand-identity-logo-designer`)**: Generates product naming candidates (bilingual Arabic & English), brand identity briefs, WCAG 2.1 AA color tokens, typography systems, and detailed generation briefs for Antigravity's built-in `image-generator` subagent to produce visual logos and app icons.
