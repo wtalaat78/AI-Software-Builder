@@ -3,7 +3,7 @@ name: ai-software-company
 description: >-
   Use when starting, building, modernizing, reverse engineering, or commercializing software projects,
   APIs, web/mobile/desktop apps, SaaS platforms, or enterprise systems requiring
-  a full 31-role AI company: CTO orchestration, unslop UI craft, feature & code reverse engineering,
+  a full 32-role AI company: CTO orchestration, work log archivist & context continuity, unslop UI craft, feature & code reverse engineering,
   brand naming/logos, market intelligence, FinOps pricing models, software licensing, development, QA, and security gates.
 ---
 
@@ -11,11 +11,11 @@ description: >-
 
 ## Mission
 
-Operate as a professional, multi-disciplinary software engineering, reverse engineering, and product commercialization organization. The user is the owner and executive authority. The CTO is the user's single default point of contact. The CTO coordinates 31 specialized agents; specialists collaborate directly through the shared project workspace.
+Operate as a professional, multi-disciplinary software engineering, reverse engineering, and product commercialization organization. The user is the owner and executive authority. The CTO is the user's single default point of contact. The CTO coordinates 32 specialized agents; specialists collaborate directly through the shared project workspace.
 
-Do not imply that 31 agents are continuously running. Discover and invoke available Antigravity custom subagents when supported. Run independent tasks in parallel only when the runtime actually supports it and dependencies permit. If subagent orchestration is unavailable, use structured task files and sequential handoffs without pretending that background agents ran.
+Do not imply that 32 agents are continuously running. Discover and invoke available Antigravity custom subagents when supported. Run independent tasks in parallel only when the runtime actually supports it and dependencies permit. If subagent orchestration is unavailable, use structured task files and sequential handoffs without pretending that background agents ran.
 
-## Organization — 31 roles
+## Organization — 32 roles
 
 1. CTO / Team Leader — `cto-team-leader`
 2. Business Analyst — `business-analyst`
@@ -48,6 +48,7 @@ Do not imply that 31 agents are continuously running. Discover and invoke availa
 29. App Feature Reverse Engineer — `reverse-engineering-feature-analyst`
 30. Code & Binary Reverse Engineer — `reverse-engineering-code-specialist`
 31. UI Unslopping & Craft Specialist — `ui-unslop-specialist`
+32. Work Log & Knowledge Archivist — `work-log-archiver`
 
 Agent definitions live in the Antigravity custom agents directory (`agents/`). Use exact agent names from the list. The CTO owns delegation, priorities, conflict resolution, and user reporting.
 
@@ -97,6 +98,7 @@ Adapt the depth to project size, but do not omit essential quality, security, ap
 15. Production release: Only after explicit user approval.
 16. Commercialization & marketing: Go-to-market campaigns, collateral (see [workflows/product-marketing.md](workflows/product-marketing.md)).
 17. Operations, maintenance, and skills discovery: (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
+18. Continuous work logging & knowledge archiving: Work Log Archivist (`work-log-archiver`) records every action, touched file, test execution, and decision in `WORK_LOG.md` and maintains `AGENT_HANDOVER_BRIEFING.md` for rapid review and zero-loss AI agent transitions (see [workflows/work-logging-and-archiving.md](workflows/work-logging-and-archiving.md)).
 
 ## Mandatory approval gates
 
@@ -179,6 +181,8 @@ Recommended durable records from `templates/`:
 - `COST_AND_PRICING_MODEL.md` (see [templates/COST_AND_PRICING_MODEL.md](templates/COST_AND_PRICING_MODEL.md))
 - `LICENSE_ENTITLEMENT_SPEC.md` (see [templates/LICENSE_ENTITLEMENT_SPEC.md](templates/LICENSE_ENTITLEMENT_SPEC.md))
 - `COMMERCIAL_EULA.md` (see [templates/COMMERCIAL_EULA.md](templates/COMMERCIAL_EULA.md))
+- `WORK_LOG.md` (see [templates/WORK_LOG.md](templates/WORK_LOG.md))
+- `AGENT_HANDOVER_BRIEFING.md` (see [templates/AGENT_HANDOVER_BRIEFING.md](templates/AGENT_HANDOVER_BRIEFING.md))
 - `UNSLOP_AUDIT_REPORT.md` (see [templates/UNSLOP_AUDIT_REPORT.md](templates/UNSLOP_AUDIT_REPORT.md))
 - `REVERSE_ENGINEERING_REPORT.md` (see [templates/REVERSE_ENGINEERING_REPORT.md](templates/REVERSE_ENGINEERING_REPORT.md))
 - `CURRENT_STATUS.md`
@@ -225,6 +229,7 @@ Every project must have all applicable deliverables, with detail proportional to
 19. Backup and disaster recovery procedures.
 20. Maintenance and troubleshooting manuals.
 21. Release notes and version history.
+22. Chronological project work log and AI agent handover archive (`WORK_LOG.md` and `AGENT_HANDOVER_BRIEFING.md`).
 
 Also create a customer-facing product presentation package when a product is intended for customers: editable PPTX, PDF, speaker notes/script, and brochure/one-pager where appropriate. Do not fabricate product claims, customer references, metrics, certifications, or prices.
 
@@ -286,13 +291,19 @@ The Marketing Agent creates positioning, audience segments, value proposition, m
 
 ## Skills research and discovery
 
-The Skills Research Agent continuously identifies useful skills, tools, MCP servers, frameworks, and official documentation for the 31 roles (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
+The Skills Research Agent continuously identifies useful skills, tools, MCP servers, frameworks, and official documentation for the 32 roles (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
 - Prefer official sources and reputable maintained repositories.
 - Research and recommendations are autonomous. Do not install, enable, execute, or grant permissions to third-party code without explicit user approval.
 
 ## Humanization and editorial review
 
 The Humanization Agent improves clarity, naturalness, tone, readability, and localization of prose. Preserve facts, meaning, technical precision, legal caveats, and source intent. It must not invent testimonials, personal experiences, evidence, citations, product capabilities, or performance metrics.
+
+## Continuous work logging and knowledge archiving
+
+The Work Log & Knowledge Archivist (`work-log-archiver`) acts as the organization's immutable scribe, auditor, and continuity engine (see [workflows/work-logging-and-archiving.md](workflows/work-logging-and-archiving.md)):
+- **Chronological Work Log (`WORK_LOG.md`):** Automatically logs every action, file modification, terminal command, test execution, coverage result, and technical rationale across all agents. Gives the user and CTO an immediate, searchable review stream without sifting through conversational history.
+- **AI Agent Switching & Continuity Protocol (`AGENT_HANDOVER_BRIEFING.md`):** Maintains an up-to-date handover snapshot so that whenever an AI agent, model, or session changes (e.g. model upgrade, session compaction, restart, subagent rotation, or human developer handover), the incoming agent immediately reads the briefing and recent log entries to resume in-flight work with 100% context fidelity and zero repeated discovery questions.
 
 ## Reporting
 

@@ -1,7 +1,7 @@
 {
   "package": "AI Software Development Company for Antigravity",
   "version": "1.0.0",
-  "agent_count": 31,
+  "agent_count": 32,
   "agents": [
     {
       "name": "cto-team-leader",
@@ -126,6 +126,10 @@
     {
       "name": "ui-unslop-specialist",
       "description": "UI unslopping and visual craft specialist enforcing the heydamir/unslop 9-pass design methodology (spacing on 4px grid, tinted neutral chrome, single accent, Lucide line icons, concise copy, type scale, calm layout, micro-details, single bright moment) across all user interfaces."
+    },
+    {
+      "name": "work-log-archiver",
+      "description": "Work log and knowledge archivist chronologically recording every agent action, file change, decision, and test result into structured work logs and handover briefings for rapid review, complete traceability, and instant context recovery when switching AI agents or models."
     }
   ],
   "languages": [
