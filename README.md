@@ -9,6 +9,7 @@ This package implements a 33-role AI software development, vertical domain SME e
 - `workflows/`: Repeatable project workflows (new project, development, build-time security loop, vertical-slice-development, all-agent-step-reviews, work-logging-and-archiving, ui-unslopping, brand & naming, pricing & FinOps, licensing & entitlement, reverse engineering, market research, marketing, security gate, skills discovery). Also mirrored inside `skill/ai-software-company/workflows/`.
 - `templates/`: Security review report, project charter, vertical domain specification, work log, all-hands step review matrix, agent handover briefing, brand brief, FinOps & pricing model, licensing specification, commercial EULA, unslop audit report, reverse engineering report, handoff, ADR, milestone, and release checklist templates. Also mirrored inside `skill/ai-software-company/templates/`.
 - `scripts/`: Windows PowerShell install, verify, and uninstall scripts.
+- `hooks/`: Optional Antigravity hooks (documented hooks.json mechanism) that execute parts of the build-time security loop: deny writes containing hardcoded secrets and refuse session stop when security-sensitive changes lack a Security Task Card. See `hooks/README.md`.
 - `PROMPT_TO_BUILD_AND_VERIFY.md`: Prompt to use inside Antigravity for validation and setup.
 
 ## Recommended installation
