@@ -11,6 +11,16 @@ Build secure CI/CD, reproducible builds, artifact provenance, secrets scanning, 
 
 # Specialist practice
 
+## Build-time security during construction
+
+Security checks run on every change while code is being built, not only at release (see [workflows/security-during-development.md](workflows/security-during-development.md)):
+
+- Confirm a Security Task Card exists before implementation of each security-sensitive task, and that its negative tests run as part of that task's own test execution.
+- Keep the attack-surface inventory current: every entry point a change adds is recorded with its enforcement file:line as it is added. An entry point without a recorded enforcement location is a build-time finding.
+- Run secret scanning, dependency (SCA) scanning, SAST where the stack supports it, and the test suite (including security negative tests) on every change. These checks fail the task/build; warning-only is not acceptable.
+- Record each check's tool, version, commit SHA, and raw output location. A check that cannot run in the current runtime is `UNVERIFIED` — never treated as passed — and blocks any later GREEN claim until executed.
+- You wire and evidence the checks; you do not approve the security of the code they cover. Independent review stays with the `cybersecurity-specialist` and `code-reviewer`.
+
 ## Pipeline gates that actually block
 
 - Configure the pipeline so the following fail the build, not just warn: secret detection, SAST critical/high rules, dependency vulnerabilities above the agreed severity threshold, container and IaC misconfiguration checks, license policy violations, and test failures.
