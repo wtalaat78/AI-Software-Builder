@@ -2,8 +2,10 @@
 """Antigravity PreToolUse hook: scan content about to be written for hardcoded
 secrets before it lands in a project file. Conservative on purpose: it denies
 only unambiguous secret formats and asks on suspicious assignments, so normal
-code is never blocked. Fails open (allow) on internal error so a broken gate
-can never wedge the IDE, and says so in the reason."""
+code is never blocked. Placeholder/example suppression looks at the matched
+secret value itself, not nearby comments, so a comment saying "test" cannot
+hide a real key. Fails open (allow) on internal error so a broken gate can
+never wedge the IDE, and says so in the reason."""
 import json, re, sys
 
 DENY_PATTERNS = [
@@ -16,18 +18,18 @@ DENY_PATTERNS = [
     (re.compile(r"\bAIza[0-9A-Za-z_-]{35}\b"), "Google API key"),
 ]
 # Suspicious but plausibly a placeholder or example: ask, do not deny.
-ASK_PATTERNS = [
-    (re.compile(r"(?i)(password|passwd|secret|api[_-]?key|token)\s*[:=]\s*['\"][^'\"\s]{8,}['\"]"),
-     "possible hardcoded credential assignment"),
-]
-PLACEHOLDER_HINT = re.compile(r"(?i)(example|sample|placeholder|dummy|test|changeme|xxx|\.\.\.|<[a-z_-]+>|\{\{)")
+# Group 1 is the assigned value (without quotes); suppression checks that value.
+ASK_PATTERN = (
+    re.compile(r"(?i)(?:password|passwd|secret|api[_-]?key|token)\s*[:=]\s*['\"]([^'\"\s]{8,})['\"]"),
+    "possible hardcoded credential assignment",
+)
+PLACEHOLDER_HINT = re.compile(r"(?i)(example|sample|placeholder|dummy|changeme|xxx|\.\.\.|<[a-z_-]+>|\{\{|your[_-]|test[_-]?key|fake)")
 
 WRITE_CONTENT_KEYS = {
     "write_to_file": ["CodeContent"],
     "replace_file_content": ["ReplacementContent"],
     "multi_replace_file_content": [],  # handled via ReplacementChunks
 }
-MAX_SCAN = 200_000
 
 def out(decision, reason=""):
     print(json.dumps({"decision": decision, "reason": reason}))
@@ -58,15 +60,18 @@ def main():
     text = collect_text(name, args)
     if not text:
         out("allow")
-    text = text[:MAX_SCAN]
+    # No scan-size cap: a cap is a bypass (hide the secret past the cutoff).
     for rx, label in DENY_PATTERNS:
         m = rx.search(text)
-        if m and not PLACEHOLDER_HINT.search(text[max(0, m.start()-60):m.end()+60]):
+        # Suppress only when the matched secret value itself is a placeholder
+        # (e.g. AWS documentation key AKIAIOSFODNN7EXAMPLE) — never because a
+        # nearby comment says "example" or "test".
+        if m and not PLACEHOLDER_HINT.search(m.group(0)):
             out("deny", f"Blocked write: content contains {label}. Secrets must come from a secret store or environment, never source. Store it properly and reference it instead.")
-    for rx, label in ASK_PATTERNS:
-        m = rx.search(text)
-        if m and not PLACEHOLDER_HINT.search(text[max(0, m.start()-60):m.end()+60]):
-            out("ask", f"Content may contain a {label}. Confirm it is a placeholder/example, or move the secret to a secret store.")
+    rx, label = ASK_PATTERN
+    m = rx.search(text)
+    if m and not PLACEHOLDER_HINT.search(m.group(1)):
+        out("ask", f"Content may contain a {label}. Confirm it is a placeholder/example, or move the secret to a secret store.")
     out("allow")
 
 main()
