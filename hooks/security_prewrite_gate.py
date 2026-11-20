@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Antigravity PreToolUse hook: scan content about to be written for hardcoded
 secrets before it lands in a project file. Conservative on purpose: it denies
-only unambiguous secret formats and asks on suspicious assignments, so normal
-code is never blocked. Placeholder/example suppression looks at the matched
+only unambiguous secret formats and force-asks (bypassing cached approvals) on
+suspicious assignments, so normal code is never blocked. Placeholder/example suppression looks at the matched
 secret value itself, not nearby comments, so a comment saying "test" cannot
 hide a real key. Fails open (allow) on internal error so a broken gate can
 never wedge the IDE, and says so in the reason."""
@@ -11,6 +11,7 @@ import json, re, sys
 DENY_PATTERNS = [
     (re.compile(r"-----BEGIN (?:RSA |EC |DSA |OPENSSH |PGP )?PRIVATE KEY( BLOCK)?-----"), "private key material"),
     (re.compile(r"\bAKIA[0-9A-Z]{16}\b"), "AWS access key id"),
+    (re.compile(r"\bASIA[0-9A-Z]{16}\b"), "AWS temporary (STS) access key id"),
     (re.compile(r"\bghp_[A-Za-z0-9]{36}\b"), "GitHub personal access token"),
     (re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,}\b"), "GitHub fine-grained token"),
     (re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"), "Slack token"),
@@ -25,10 +26,12 @@ ASK_PATTERN = (
 )
 PLACEHOLDER_HINT = re.compile(r"(?i)(example|sample|placeholder|dummy|changeme|xxx|\.\.\.|<[a-z_-]+>|\{\{|your[_-]|test[_-]?key|fake)")
 
+# Content-bearing keys, including the human-readable Description: a secret can
+# hide in the description text just as easily as in the file body.
 WRITE_CONTENT_KEYS = {
-    "write_to_file": ["CodeContent"],
-    "replace_file_content": ["ReplacementContent"],
-    "multi_replace_file_content": [],  # handled via ReplacementChunks
+    "write_to_file": ["CodeContent", "Description"],
+    "replace_file_content": ["ReplacementContent", "Description"],
+    "multi_replace_file_content": ["Description"],  # chunks handled via ReplacementChunks
 }
 
 def out(decision, reason=""):
@@ -71,7 +74,16 @@ def main():
     rx, label = ASK_PATTERN
     m = rx.search(text)
     if m and not PLACEHOLDER_HINT.search(m.group(1)):
-        out("ask", f"Content may contain a {label}. Confirm it is a placeholder/example, or move the secret to a secret store.")
+        # force_ask (documented in the hooks schema) ignores cached "Always
+        # Allow" approvals: a suspected credential must prompt every time.
+        out("force_ask", f"Content may contain a {label}. Confirm it is a placeholder/example, or move the secret to a secret store.")
     out("allow")
 
-main()
+if __name__ == "__main__":
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as e:
+        # Unexpected internal error: still emit valid JSON and fail open.
+        out("allow", f"security_prewrite_gate: internal error, failing open ({e})")
