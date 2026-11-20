@@ -96,6 +96,12 @@ error — treat a failing gate as `UNVERIFIED`, never as passed.
   formats. The mirror-image risk also exists: a genuine key that happens to
   contain a marker substring would be wrongly allowed. Both are accepted,
   documented tradeoffs of keeping suppression tied to the value itself.
+- **The sensitive-path matcher trades recall for precision.** The stop gate's
+  word-boundary matching avoids false positives like `author.md`, at the cost
+  of missing longer stems: `authentication.py`, `authorization`, `administrator`,
+  `certificate.pem` and similar derivatives do not trigger it. A sensitive
+  change named that way can end a turn without a card — the workflow's card
+  requirement and reviewer judgment remain the backstop.
 - **Only known content keys are scanned.** The write tools' file-content keys
   and `Description` are covered; other metadata fields (such as `Instruction`
   or any key the documentation does not list as content-bearing) are not
