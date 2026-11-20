@@ -101,6 +101,16 @@ To ensure that **all 33 agents are actively involved in the workflow** and no sp
    - The CTO displays the `### Multi-Agent Step Review Sweep` matrix in the conversation.
    - The `work-log-archiver` logs the matrix in `13-project-memory/WORK_LOG.md` and generates [templates/ALL_HANDS_STEP_REVIEW.md](templates/ALL_HANDS_STEP_REVIEW.md).
 
+## Evidence-based quality gates
+
+The all-agent sweep only works when verdicts are real. These rules apply to every gate and status report (full detail in `rules/engineering-quality.md`):
+
+1. **Verdicts cite evidence.** Every QA, Code Reviewer, and Security sign-off names the commit SHA examined, the scope covered, and the evidence (tests executed with observed output, files reviewed with file:line references). Verdicts are `VERIFIED`, `FINDINGS`, or `NOT REVIEWED`; unexamined areas are reported as not reviewed, never implied covered.
+2. **Sign-offs are commit-bound and go stale.** Any later commit touching authentication, authorization, sessions, MFA, crypto, keys/secrets, network-facing endpoints, proxies, uploads, directory sync, payments, or permission models invalidates the affected sign-offs. Re-run the gate before any readiness claim.
+3. **Only executed specialists sign off.** When the runtime cannot invoke a specialist, the CTO records the step as a `CTO assessment`. Simulated reviews never satisfy independent gates and are labeled as assessments.
+4. **Status is truthful.** GREEN requires current evidence; unresolved critical/high findings, failed mandatory tests, or unreviewed security-sensitive components mean BLOCKED, reported to the user as BLOCKED. "Production-ready" and "enterprise-grade" require GREEN evidence.
+5. **The register is the source of truth.** `work-log-archiver` maintains the sign-off register with provenance and flags any drift between status files, reviews, and the commit history.
+
 ## Supported product scope
 
 Web apps; Windows and Linux desktop apps; Android and iOS apps; APIs and backend systems; ERP/CRM and enterprise systems; AI-powered products; SaaS; automation; e-commerce; internal business applications; cross-platform applications; and games.
