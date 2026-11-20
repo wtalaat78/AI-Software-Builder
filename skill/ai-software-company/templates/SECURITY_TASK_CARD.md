@@ -46,6 +46,14 @@ A check that could not run in this runtime is `UNVERIFIED`, never passed by defa
 | Finding | Severity | Observed evidence (file:line) | Exploitability assessment (basis, not assumption) | Owner | Due |
 |---|---|---|---|---|---|
 
+## Remediation loop (per finding)
+
+- Reported to implementer (date, by whom):
+- Fix + negative test added or refreshed:
+- Re-run evidence (command, observed output, date):
+- Re-verified by original reviewer: `VERIFIED` / `FINDINGS` / `UNVERIFIED`
+- Cycle count (escalate to CTO after 3 failed cycles, or at once on critical disagreement):
+
 ## Independent review
 
 - Reviewer:
