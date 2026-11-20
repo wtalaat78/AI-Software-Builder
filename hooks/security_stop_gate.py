@@ -20,9 +20,12 @@ Bounds and fail-open behavior:
   status and are not inspected; this gate sees uncommitted work only."""
 import json, os, re, subprocess, sys, tempfile
 
+# Word-bounded with optional plural "s": "author.md" must not match "auth",
+# "roles.py" still matches "role".
 SENSITIVE = re.compile(
-    r"(?i)(auth|login|logout|session|token|jwt|oauth|mfa|totp|otp|crypto|encrypt|decrypt|secret|credential|"
-    r"password|permission|rbac|role|admin|upload|payment|billing|checkout|proxy|gateway|tls|cert|ldap|directory)"
+    r"(?i)\b(auth|logins?|logout|sessions?|tokens?|jwt|oauth|mfa|totp|otp|crypto|"
+    r"(?:en|de)crypt(?:ion|ed)?|secrets?|credentials?|passwords?|permissions?|rbac|roles?|"
+    r"admin|uploads?|payments?|billing|checkout|proxy|gateway|tls|certs?|ldap|directory)\b"
 )
 CARD = re.compile(r"(?i)SECURITY[-_ ]?TASK[-_ ]?CARD")
 MAX_CONTINUES = 3  # mirrors the 3-cycle escalation bound in the workflow
@@ -117,4 +120,12 @@ def main():
                 f"(refusal {used + 1} of {MAX_CONTINUES}; after that the session stops and this escalates to the user)")
     out("")
 
-main()
+if __name__ == "__main__":
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as e:
+        # Unexpected internal error: still emit valid JSON and fail open
+        # (never block the user with a traceback or a nonzero exit).
+        out("", f"security_stop_gate: internal error, failing open ({e})")
