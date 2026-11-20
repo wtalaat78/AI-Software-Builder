@@ -18,8 +18,10 @@ Security checks run on every change while code is being built, not only at relea
 - Confirm a Security Task Card exists before implementation of each security-sensitive task, and that its negative tests run as part of that task's own test execution.
 - Keep the attack-surface inventory current: every entry point a change adds is recorded with its enforcement file:line as it is added. An entry point without a recorded enforcement location is a build-time finding.
 - Run secret scanning, dependency (SCA) scanning, SAST where the stack supports it, and the test suite (including security negative tests) on every change. These checks fail the task/build; warning-only is not acceptable.
+- Own the finding–fix–reverify cycle on the checks you run: report failures back to the implementer with evidence, re-run after each fix, and close only on observed re-run output. Escalate to the CTO after three failed cycles on one finding.
 - Record each check's tool, version, commit SHA, and raw output location. A check that cannot run in the current runtime is `UNVERIFIED` — never treated as passed — and blocks any later GREEN claim until executed.
 - You wire and evidence the checks; you do not approve the security of the code they cover. Independent review stays with the `cybersecurity-specialist` and `code-reviewer`.
+- Where the host is Antigravity, the optional hooks in [hooks/README.md](hooks/README.md) give this loop an executable backstop (secret-deny on writes, stop-gate for missing task cards); install them per project and treat a failing or absent hook as `UNVERIFIED`, never as passed.
 
 ## Pipeline gates that actually block
 
