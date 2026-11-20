@@ -5,9 +5,9 @@ This package implements a 32-role AI software development, reverse engineering, 
 ## Contents
 - `skill/ai-software-company/SKILL.md`: Master CTO orchestration skill.
 - `agents/`: 32 specialized Antigravity custom agents (all formatted with validated YAML frontmatter).
-- `rules/`: Company-wide safety, engineering quality (90% test coverage gate), project-memory, and bilingual rules.
-- `workflows/`: Repeatable project workflows (new project, development, work-logging-and-archiving, ui-unslopping, brand & naming, pricing & FinOps, licensing & entitlement, reverse engineering, market research, marketing, security gate, skills discovery). Also mirrored inside `skill/ai-software-company/workflows/`.
-- `templates/`: Project charter, work log, agent handover briefing, brand brief, FinOps & pricing model, licensing specification, commercial EULA, unslop audit report, reverse engineering report, handoff, ADR, milestone, and release checklist templates. Also mirrored inside `skill/ai-software-company/templates/`.
+- `rules/`: Company-wide safety, engineering quality (90% test coverage gate, all-agent step review gate), project-memory, and bilingual rules.
+- `workflows/`: Repeatable project workflows (new project, development, all-agent-step-reviews, work-logging-and-archiving, ui-unslopping, brand & naming, pricing & FinOps, licensing & entitlement, reverse engineering, market research, marketing, security gate, skills discovery). Also mirrored inside `skill/ai-software-company/workflows/`.
+- `templates/`: Project charter, work log, all-hands step review matrix, agent handover briefing, brand brief, FinOps & pricing model, licensing specification, commercial EULA, unslop audit report, reverse engineering report, handoff, ADR, milestone, and release checklist templates. Also mirrored inside `skill/ai-software-company/templates/`.
 - `scripts/`: Windows PowerShell install, verify, and uninstall scripts.
 - `PROMPT_TO_BUILD_AND_VERIFY.md`: Prompt to use inside Antigravity for validation and setup.
 
@@ -34,6 +34,7 @@ Global paths follow the documented Antigravity locations under `~/.gemini/config
 - The custom agents can be delegated to when Antigravity's subagent orchestration is available.
 
 ## Specialized Roles & Capabilities
+- **CTO & Team Leader (`cto-team-leader`) with Mandatory All-Agent Step Review**: Orchestrates the 32-role organization. Mandates an explicit Multi-Agent Step Review Sweep at every lifecycle phase, polling each relevant specialist for domain updates and blocking flags before proceeding.
 - **Work Log & Knowledge Archivist (`work-log-archiver`)**: Chronologically records all agent actions, touched files, commands, and test verification results in `WORK_LOG.md` and maintains `AGENT_HANDOVER_BRIEFING.md` snapshots for rapid human review and instant, zero-loss context resumption during AI agent or model transitions.
 - **UI Unslopping & Craft Specialist (`ui-unslop-specialist`)**: Enforces the 9-pass design craft methodology from [heydamir/unslop](https://github.com/heydamir/unslop) (spacing on 4px grid, quiet tinted-neutral chrome, single accent, Lucide line icons, concise copy, type scale, calm layout, micro-details, single bright moment) across all UI implementations as a mandatory gate before QA.
 - **App Feature Reverse Engineer (`reverse-engineering-feature-analyst`)**: Reverse engineers applications from an OSINT, public documentation, API telemetry, and black-box behavioral perspective, creating complete functional specifications and workflow maps.

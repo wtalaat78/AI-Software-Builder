@@ -1,11 +1,24 @@
 # Feature Development Lifecycle
 
-1. Confirm approved story, acceptance criteria, dependencies, and owner.
-2. Architect and API specialist agree on interfaces and data contracts before parallel implementation.
-3. Delegate bounded tasks to frontend/backend/mobile/desktop/database/AI agents as relevant.
-4. Developers implement changes alongside automated tests and configuration documentation.
-5. **MANDATORY UI UNSLOPPING PASS:** For all user-facing code, the `ui-unslop-specialist` audits and refactors screens using the 9-pass [heydamir/unslop](workflows/ui-unslopping.md) methodology (spacing, quiet chrome, single accent, Lucide line icons, concise copy, typography scale, calm layout, and 4px grid alignment).
-6. Run static analysis, unit and integration tests (asserting $\ge 90\%$ coverage for critical logic), security scans, and build.
-7. QA independently verifies acceptance criteria, accessibility (WCAG 2.1 AA), and regression risk.
-8. Code Reviewer independently reviews diff and evidence.
-9. Update backlog, project memory, traceability, and milestone status.
+1. **Task Intake & Pre-Development Alignment:**
+   - Confirm approved story, acceptance criteria, dependencies, and assigned agent owner.
+2. **Interface & Contract Review Sweep:**
+   - Solution Architect, API Specialist, Database Engineer, and Cybersecurity Specialist agree on interfaces, schemas, and security controls before implementation starts.
+3. **Bounded Delegation & Implementation:**
+   - CTO delegates bounded tasks to frontend/backend/mobile/desktop/database/AI agents.
+   - Developers implement code accompanied by automated unit tests and configuration documentation.
+4. **Mandatory UI Unslopping Pass:**
+   - For all user-facing screens and components, the `ui-unslop-specialist` audits and refactors code using the 9-pass [heydamir/unslop](workflows/ui-unslopping.md) methodology (4px grid, quiet chrome, single accent, Lucide line icons, concise copy, type scale, calm layout, micro-details).
+5. **Continuous Verification & Security Scans:**
+   - Run static analysis, automated unit/integration tests (asserting $\ge 90\%$ critical logic coverage), dependency vulnerability scans, and build validation.
+6. **Independent Quality & Security Gates:**
+   - `qa-testing-engineer` independently verifies acceptance criteria, edge cases, accessibility (WCAG 2.1 AA), and regression risk.
+   - `code-reviewer` independently reviews diff, maintainability, and architectural conformance. Developers cannot approve their own code.
+   - `cybersecurity-specialist` conducts SAST/DAST verification.
+7. **MANDATORY ALL-AGENT STEP REVIEW SWEEP:**
+   - Before milestone sign-off, the CTO executes an **All-Agent Step Review Sweep** ([workflows/all-agent-step-reviews.md](workflows/all-agent-step-reviews.md)).
+   - The CTO queries all involved specialists:
+     > *"Have you reviewed the implementation diff, test evidence, and security reports? Do you have any domain updates, requirements, or objections?"*
+   - Each agent registers their status (`APPROVED`, `APPROVED_WITH_COMMENTS`, `CHANGES_REQUESTED`). Any requested changes must be resolved before sign-off.
+8. **Archival & Handover Update:**
+   - `work-log-archiver` commits the review sweep, modified files, commands run, and test coverage to `13-project-memory/WORK_LOG.md` and updates `AGENT_HANDOVER_BRIEFING.md`.

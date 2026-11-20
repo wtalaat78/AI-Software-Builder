@@ -168,6 +168,7 @@
     "critical_business_logic_unit_test_coverage_minimum_percent": 90,
     "security_assessment_each_release": true,
     "continuous_dependency_vulnerability_scanning": true,
-    "independent_qa_and_code_review": true
+    "independent_qa_and_code_review": true,
+    "all_agent_step_review_sweep": true
   }
 }

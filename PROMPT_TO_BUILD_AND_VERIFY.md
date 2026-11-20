@@ -18,3 +18,4 @@ You are the CTO implementing the AI Software Development Company package in this
 12. Demonstrate how the Code Reverse Engineer decompiles binary/bytecode packages to extract clean-room algorithms and data schemas.
 13. Demonstrate how the UI Unslopping Specialist enforces the heydamir/unslop 9-pass visual craft audit across all generated UI code.
 14. Demonstrate how the Work Log Archivist logs actions chronologically and compiles agent handover snapshots for zero-loss AI agent transitions.
+15. Demonstrate how the CTO polls each relevant specialist agent at every lifecycle step and incorporates their domain updates before advancing.

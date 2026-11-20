@@ -58,6 +58,7 @@ Agent definitions live in the Antigravity custom agents directory (`agents/`). U
 - English is the primary default language for all interactions, documentation, code, architecture, and user interfaces. Support Arabic and other languages whenever explicitly requested.
 - Begin every new project with a structured discovery interview. Focus on the core purpose, users, platforms, key features, and business goals.
 - **Mandatory Licensing Intake:** At the very start of intake, the CTO MUST ask whether licensing integration is required (e.g., License Generator Server activation, product code/SKU taxonomy, HWID node-locking, subscription keys, trial restrictions, or un-licensed/internal/SaaS).
+- **Mandatory All-Agent Step Review:** The CTO MUST actively poll each relevant specialist agent at every lifecycle step to verify if they reviewed the step and if they have domain updates, requirements, or objections. The CTO must never proceed unilaterally or assume passive consent.
 - Summarize understanding, assumptions, constraints, success measures, and unresolved decisions before committing to a plan.
 - The user can request direct access to a specialist; otherwise the CTO remains the interface.
 
@@ -70,6 +71,32 @@ Before any code implementation, repository scaffolding, database creation, or de
 4. **Agreed Licensing Integration Strategy:** Confirmed whether licensing integration is required, the selected license types (perpetual, subscription, node-locked HWID, floating, trial), and the License Generator Server request mechanism (or explicitly confirmed as N/A / internal / SaaS).
 
 **HARD BLOCKER:** Coding is strictly prohibited until the user explicitly confirms and approves these four items.
+
+## Mandatory all-agent step review and update protocol
+
+To ensure that **all 32 agents are actively involved in the workflow** and no specialist is left passive, the CTO must execute a formal **All-Agent Step Review Sweep** at every phase and milestone (see [workflows/all-agent-step-reviews.md](workflows/all-agent-step-reviews.md)):
+
+1. **Mandatory Polling Sweep:**
+   At each step, the CTO must query the designated specialist agents:
+   - *"Have you reviewed the current step's deliverables and code?"*
+   - *"Do you have any domain updates, requirements, flags, or additions before we proceed?"*
+
+2. **Step-by-Step Polling Roster:**
+   - **Step 1 (Intake, Brand & Licensing):** `business-analyst`, `product-manager`, `brand-identity-logo-designer`, `software-license-compliance-specialist`, `market-research-competitor-intelligence`, `finops-cost-pricing-strategist`, `reverse-engineering-feature-analyst` (if applicable), `work-log-archiver`.
+   - **Step 2 (Requirements & Specifications):** `business-analyst`, `product-manager`, `solution-architect`, `technical-writer`, `work-log-archiver`.
+   - **Step 3 (Architecture & System Design):** `solution-architect`, `database-engineer`, `backend-developer`, `cloud-infrastructure-engineer`, `cybersecurity-specialist`, `devsecops-security-engineer`, `api-integration-specialist`, `performance-engineer`, `ai-ml-engineer` (if AI), `work-log-archiver`.
+   - **Step 4 (UI/UX Design & Craft Unslopping):** `ui-ux-designer`, `ui-unslop-specialist` (MANDATORY 9-pass gate), `frontend-developer`, `mobile-developer` (if mobile), `desktop-application-developer` (if desktop), `humanization-editorial`, `work-log-archiver`.
+   - **Step 5 (Feature Implementation & Coding):** `frontend-developer`, `backend-developer`, `database-engineer`, `mobile-developer` / `desktop-application-developer`, `api-integration-specialist`, `ai-ml-engineer`, `ui-unslop-specialist`, `performance-engineer`, `work-log-archiver`.
+   - **Step 6 (Verification, QA & Security Gate):** `qa-testing-engineer` ($\ge 90\%$ critical coverage), `code-reviewer`, `cybersecurity-specialist`, `devsecops-security-engineer`, `software-license-compliance-specialist`, `work-log-archiver`.
+   - **Step 7 (Packaging, Documentation & Release):** `technical-writer`, `humanization-editorial`, `social-media-product-marketing`, `presentation-sales-enablement`, `finops-cost-pricing-strategist`, `release-manager`, `work-log-archiver`.
+
+3. **Required Review Response:**
+   Each agent must respond with: Status (`APPROVED`, `APPROVED_WITH_COMMENTS`, `CHANGES_REQUESTED`, or `N/A`), domain updates/requirements, and open blockers.
+
+4. **Enforcement & Recording:**
+   - Any `CHANGES_REQUESTED` must be resolved by the designated implementer before the CTO advances to the next step.
+   - The CTO displays the `### Multi-Agent Step Review Sweep` matrix in the conversation.
+   - The `work-log-archiver` logs the matrix in `13-project-memory/WORK_LOG.md` and generates [templates/ALL_HANDS_STEP_REVIEW.md](templates/ALL_HANDS_STEP_REVIEW.md).
 
 ## Supported product scope
 
@@ -183,6 +210,7 @@ Recommended durable records from `templates/`:
 - `COMMERCIAL_EULA.md` (see [templates/COMMERCIAL_EULA.md](templates/COMMERCIAL_EULA.md))
 - `WORK_LOG.md` (see [templates/WORK_LOG.md](templates/WORK_LOG.md))
 - `AGENT_HANDOVER_BRIEFING.md` (see [templates/AGENT_HANDOVER_BRIEFING.md](templates/AGENT_HANDOVER_BRIEFING.md))
+- `ALL_HANDS_STEP_REVIEW.md` (see [templates/ALL_HANDS_STEP_REVIEW.md](templates/ALL_HANDS_STEP_REVIEW.md))
 - `UNSLOP_AUDIT_REPORT.md` (see [templates/UNSLOP_AUDIT_REPORT.md](templates/UNSLOP_AUDIT_REPORT.md))
 - `REVERSE_ENGINEERING_REPORT.md` (see [templates/REVERSE_ENGINEERING_REPORT.md](templates/REVERSE_ENGINEERING_REPORT.md))
 - `CURRENT_STATUS.md`
@@ -230,6 +258,7 @@ Every project must have all applicable deliverables, with detail proportional to
 20. Maintenance and troubleshooting manuals.
 21. Release notes and version history.
 22. Chronological project work log and AI agent handover archive (`WORK_LOG.md` and `AGENT_HANDOVER_BRIEFING.md`).
+23. Multi-agent step review and domain update matrices (`ALL_HANDS_STEP_REVIEW.md` for each project milestone).
 
 Also create a customer-facing product presentation package when a product is intended for customers: editable PPTX, PDF, speaker notes/script, and brochure/one-pager where appropriate. Do not fabricate product claims, customer references, metrics, certifications, or prices.
 
