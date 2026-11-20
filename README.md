@@ -7,7 +7,7 @@ This package implements a 33-role AI software development, vertical domain SME e
 - `agents/`: 33 specialized Antigravity custom agents (all formatted with validated YAML frontmatter).
 - `rules/`: Company-wide safety, engineering quality (90% test coverage gate, all-agent step review gate), project-memory, and bilingual rules.
 - `workflows/`: Repeatable project workflows (new project, development, vertical-slice-development, all-agent-step-reviews, work-logging-and-archiving, ui-unslopping, brand & naming, pricing & FinOps, licensing & entitlement, reverse engineering, market research, marketing, security gate, skills discovery). Also mirrored inside `skill/ai-software-company/workflows/`.
-- `templates/`: Project charter, vertical domain specification, work log, all-hands step review matrix, agent handover briefing, brand brief, FinOps & pricing model, licensing specification, commercial EULA, unslop audit report, reverse engineering report, handoff, ADR, milestone, and release checklist templates. Also mirrored inside `skill/ai-software-company/templates/`.
+- `templates/`: Security review report, project charter, vertical domain specification, work log, all-hands step review matrix, agent handover briefing, brand brief, FinOps & pricing model, licensing specification, commercial EULA, unslop audit report, reverse engineering report, handoff, ADR, milestone, and release checklist templates. Also mirrored inside `skill/ai-software-company/templates/`.
 - `scripts/`: Windows PowerShell install, verify, and uninstall scripts.
 - `PROMPT_TO_BUILD_AND_VERIFY.md`: Prompt to use inside Antigravity for validation and setup.
 
