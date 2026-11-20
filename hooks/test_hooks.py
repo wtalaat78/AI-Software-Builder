@@ -3,7 +3,9 @@
 Covers the decisions each gate must make and the failure modes found in
 independent review (unbounded refusals when the counter cannot persist,
 untracked-directory blind spot, comment-based suppression, scan truncation,
-fullyIdle and cancellation pass-through)."""
+fullyIdle and cancellation pass-through, ASIA temporary keys, secrets in write
+descriptions, cached-approval bypass via force_ask, the author.md false
+positive, and internal-error fail-open)."""
 import json, os, subprocess, sys, tempfile, unittest, uuid
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -46,13 +48,39 @@ class TestPrewriteGate(unittest.TestCase):
                 "CodeContent": '// test data below\nconst key = "AKIAZZ9X8Y7W6V5U4T3S";'}))
         self.assertEqual(d["decision"], "deny")
 
-    def test_asks_on_hardcoded_password_allows_placeholder_value(self):
+    def test_force_asks_on_hardcoded_password_allows_placeholder_value(self):
+        # force_ask (not ask): documented decision that ignores cached
+        # "Always Allow" approvals, so a suspected credential always prompts.
         d = run(PRE, write_payload("replace_file_content", {"TargetFile": "c.js",
                 "ReplacementContent": 'const dbPassword = "Sup3rSecretValue!";'}))
-        self.assertEqual(d["decision"], "ask")
+        self.assertEqual(d["decision"], "force_ask")
         d = run(PRE, write_payload("replace_file_content", {"TargetFile": "c.js",
                 "ReplacementContent": 'const dbPassword = "<db-password-here>";'}))
         self.assertEqual(d["decision"], "allow")
+
+    def test_denies_asia_temporary_aws_key(self):
+        # Review finding: STS temporary keys (ASIA...) were missed.
+        d = run(PRE, write_payload("write_to_file", {"TargetFile": "t.js",
+                "CodeContent": 'const k = "ASIAZZ9X8Y7W6V5U4T3S";'}))
+        self.assertEqual(d["decision"], "deny")
+
+    def test_denies_secret_hidden_in_description(self):
+        # Review finding: the write tools' Description text was not scanned.
+        d = run(PRE, write_payload("write_to_file", {"TargetFile": "c.js",
+                "CodeContent": "export const x = 1;",
+                "Description": "adds client, key AKIAZZ9X8Y7W6V5U4T3S for now"}))
+        self.assertEqual(d["decision"], "deny")
+        d = run(PRE, write_payload("multi_replace_file_content", {"TargetFile": "c.js",
+                "Description": 'password = "Sup3rSecretValue!"',
+                "ReplacementChunks": [{"ReplacementContent": "export const x = 2;"}]}))
+        self.assertEqual(d["decision"], "force_ask")
+
+    def test_internal_error_still_fails_open_with_json(self):
+        # Review finding: unhandled internal errors exited nonzero without a
+        # JSON reason; every failure path must emit valid JSON and fail open.
+        d = run(PRE, {"toolCall": {"name": "write_to_file", "args": "not-a-dict"}})
+        self.assertEqual(d["decision"], "allow")
+        self.assertIn("failing open", d["reason"])
 
     def test_secret_after_large_filler_is_not_truncated_away(self):
         # Review finding: a scan cap is a bypass.
@@ -131,6 +159,25 @@ class TestStopGate(unittest.TestCase):
         self.touch(os.path.join("src", "auth", "login.js"))
         d = run(STOP, self.payload(conversationId=f"nested-{uuid.uuid4()}"))
         self.assertEqual(d["decision"], "continue")
+
+    def test_author_md_is_not_sensitive(self):
+        # Review finding: substring matching flagged "author.md" as "auth".
+        self.touch("author.md", "# about the author")
+        self.assertEqual(run(STOP, self.payload())["decision"], "")
+
+    def test_plurals_and_derivatives_still_match(self):
+        self.touch("roles.py")
+        self.assertEqual(run(STOP, self.payload(conversationId=f"pl-{uuid.uuid4()}"))["decision"], "continue")
+        subprocess.run(["git", "-C", self.dir, "add", "."], check=True)
+        subprocess.run(["git", "-C", self.dir, "commit", "-qm", "x"], check=True)
+        self.touch("encryption.js")
+        self.assertEqual(run(STOP, self.payload(conversationId=f"dv-{uuid.uuid4()}"))["decision"], "continue")
+
+    def test_internal_error_still_fails_open_with_json(self):
+        self.touch("auth.js")
+        d = run(STOP, self.payload(conversationId={"bad": "type"}))
+        self.assertEqual(d["decision"], "")
+        self.assertIn("failing open", d["reason"])
 
     def test_non_git_workspace_allows(self):
         plain = tempfile.mkdtemp()
