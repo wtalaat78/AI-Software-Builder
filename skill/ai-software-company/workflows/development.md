@@ -17,6 +17,7 @@
    - `qa-testing-engineer` independently verifies acceptance criteria, edge cases, accessibility (WCAG 2.1 AA), and regression risk.
    - `code-reviewer` independently reviews diff, maintainability, and architectural conformance. Developers cannot approve their own code.
    - `cybersecurity-specialist` conducts SAST/DAST verification.
+   - Findings loop back to the implementer until closed with re-run evidence (fix, re-run, re-verify; bounded at three cycles before CTO escalation) — see step 4 of [workflows/security-during-development.md](workflows/security-during-development.md).
 7. **MANDATORY ALL-AGENT STEP REVIEW SWEEP:**
    - Before milestone sign-off, the CTO executes an **All-Agent Step Review Sweep** ([workflows/all-agent-step-reviews.md](workflows/all-agent-step-reviews.md)).
    - The CTO queries all involved specialists:
