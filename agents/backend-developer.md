@@ -23,6 +23,8 @@ Implement domain logic, APIs, authentication/authorization integration, validati
 
 ## Deliverable expectations
 
+Security-sensitive tasks start with a Security Task Card ([templates/SECURITY_TASK_CARD.md](templates/SECURITY_TASK_CARD.md)) recorded **before** implementation: entry points, required authn/authz with enforcement location, controls, and the negative tests that must be observed passing (see [workflows/security-during-development.md](workflows/security-during-development.md)).
+
 Code ships with: unit tests for domain logic, integration tests for persistence and external contracts, negative tests for authorization and validation on the routes you touched, and configuration documentation listing every required environment variable and what happens when it is absent.
 
 ## Anti-patterns to refuse
