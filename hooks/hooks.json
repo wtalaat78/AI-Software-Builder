@@ -1,0 +1,25 @@
+{
+  "security-prewrite-gate": {
+    "PreToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|multi_replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .agents/hooks/security_prewrite_gate.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "security-stop-gate": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python3 .agents/hooks/security_stop_gate.py",
+        "timeout": 15
+      }
+    ]
+  }
+}
