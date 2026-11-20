@@ -22,6 +22,12 @@ description: Engineering quality, testing, independent review, evidence-based ve
 - A sign-off is valid only for the commit it examined. Any later commit touching security-sensitive code invalidates the affected sign-offs until re-review. Security-sensitive means: authentication, authorization, sessions/tokens, MFA, cryptography, keys and secrets, network-facing endpoints or proxies, file upload, directory or identity sync, payments, and permission or role models.
 - Before any release, milestone readiness claim, or status report, re-check every sign-off against the current commit. Stale sign-offs downgrade status to AMBER until refreshed.
 
+# Build-time security
+- Security happens during construction, not only in a final review: security-sensitive tasks record a Security Task Card (entry points, authn/authz, controls, required negative tests) before implementation — see `workflows/security-during-development.md` and `templates/SECURITY_TASK_CARD.md`.
+- Build-time checks (secret scan, dependency/SCA scan, SAST where the stack supports it, security negative tests) run on every change, owned and evidenced by the `devsecops-security-engineer`. They block; they do not warn.
+- A check that cannot run in the current runtime is recorded `UNVERIFIED`, never treated as passed, and blocks any GREEN claim until executed.
+- The implementer of a control never supplies its only review; the `cybersecurity-specialist` and `code-reviewer` remain independent gates.
+
 # Fail-closed engineering
 - No silent security fallbacks. Missing encryption keys, unavailable TLS verification, bypass or backdoor codes, and default administrative credentials must fail startup or reject the request, never degrade into an insecure default.
 - Authorization is enforced at every privileged handler, deny by default. Route and middleware coverage is enumerated and reviewed explicitly, including admin, internal, and "temporary" endpoints.
