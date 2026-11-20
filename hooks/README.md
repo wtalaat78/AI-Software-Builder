@@ -47,3 +47,12 @@ error — treat a failing gate as `UNVERIFIED`, never as passed.
   the way in non-git workspaces and on non-matching changes.
 - Both scripts fail open on their own internal errors so a broken gate cannot
   wedge a session; a fail-open event is recorded in the hook's reason.
+- The stop gate only fires on clean model stops — user cancellation and error
+  terminations always pass through — and it refuses a stop at most 3 times per
+  conversation (mirroring the workflow's 3-cycle escalation bound), after which
+  the session is allowed to stop and the unresolved state escalates to a human.
+  It can never trap a session in an endless loop.
+- Fail-open is a deliberate choice: these hooks are a backstop, and a wedged
+  IDE would push users to disable security entirely. The tradeoff is that a
+  broken gate silently provides no protection — which is why a failing or
+  absent hook must be recorded as `UNVERIFIED`, not assumed working.
