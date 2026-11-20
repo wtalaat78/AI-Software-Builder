@@ -110,6 +110,7 @@ The all-agent sweep only works when verdicts are real. These rules apply to ever
 3. **Only executed specialists sign off.** When the runtime cannot invoke a specialist, the CTO records the step as a `CTO assessment`. Simulated reviews never satisfy independent gates and are labeled as assessments.
 4. **Status is truthful.** GREEN requires current evidence; unresolved critical/high findings, failed mandatory tests, or unreviewed security-sensitive components mean BLOCKED, reported to the user as BLOCKED. "Production-ready" and "enterprise-grade" require GREEN evidence.
 5. **The register is the source of truth.** `work-log-archiver` maintains the sign-off register with provenance and flags any drift between status files, reviews, and the commit history.
+6. **Security is built in, not bolted on.** Security-sensitive tasks carry a Security Task Card — entry points, required authn/authz, controls, and the negative tests that must pass — recorded before implementation, and DevSecOps-owned build-time checks (secret scan, SCA, SAST where supported, security negative tests) run on every change with stored raw evidence. A check that cannot run in the current runtime is `UNVERIFIED`, never GREEN by default (see [workflows/security-during-development.md](workflows/security-during-development.md) and [templates/SECURITY_TASK_CARD.md](templates/SECURITY_TASK_CARD.md)). Independent review by the `cybersecurity-specialist` and `code-reviewer` still applies.
 
 ## Supported product scope
 
@@ -131,7 +132,7 @@ Adapt the depth to project size, but do not omit essential quality, security, ap
 8. Cost control, FinOps & pricing model: FinOps & Pricing Strategist (see [workflows/pricing-and-finops.md](workflows/pricing-and-finops.md)).
 9. Architecture & system design: System context, components, deployment, data model, API contracts, threat model, ADRs.
 10. UX/UI design system: Journeys, wireframes, design system tokens, WCAG 2.1 AA accessibility.
-11. End-to-end Vertical Slice implementation: Develop cohesive, fully integrated feature slices (UI $\leftrightarrow$ API $\leftrightarrow$ Domain $\leftrightarrow$ DB $\leftrightarrow$ Tests) rather than isolated horizontal silos (see [workflows/vertical-slice-development.md](workflows/vertical-slice-development.md) and [workflows/development.md](workflows/development.md)).
+11. End-to-end Vertical Slice implementation: Develop cohesive, fully integrated feature slices (UI $\leftrightarrow$ API $\leftrightarrow$ Domain $\leftrightarrow$ DB $\leftrightarrow$ Tests) rather than isolated horizontal silos (see [workflows/vertical-slice-development.md](workflows/vertical-slice-development.md) and [workflows/development.md](workflows/development.md)). Security-sensitive tasks follow the build-time security loop ([workflows/security-during-development.md](workflows/security-during-development.md)): Security Task Card before code, DevSecOps-owned checks on every change.
 12. Mandatory UI unslopping pass: UI Unslopping Specialist (`ui-unslop-specialist`) applies the 9-pass heydamir/unslop craft methodology to all generated interfaces before QA (see [workflows/ui-unslopping.md](workflows/ui-unslopping.md)).
 13. Continuous verification: Automated tests, static analysis, dependency scanning, security checks, observability.
 14. Independent QA and code review: Reviewers must be separate from the implementer.
@@ -229,6 +230,7 @@ Recommended durable records from `templates/`:
 - `ALL_HANDS_STEP_REVIEW.md` (see [templates/ALL_HANDS_STEP_REVIEW.md](templates/ALL_HANDS_STEP_REVIEW.md))
 - `UNSLOP_AUDIT_REPORT.md` (see [templates/UNSLOP_AUDIT_REPORT.md](templates/UNSLOP_AUDIT_REPORT.md))
 - `REVERSE_ENGINEERING_REPORT.md` (see [templates/REVERSE_ENGINEERING_REPORT.md](templates/REVERSE_ENGINEERING_REPORT.md))
+- `SECURITY_TASK_CARD.md` per security-sensitive task (see [templates/SECURITY_TASK_CARD.md](templates/SECURITY_TASK_CARD.md))
 - `CURRENT_STATUS.md`
 - `BACKLOG.md`
 - `DECISIONS/ADR-*.md` (see [templates/ADR.md](templates/ADR.md))
