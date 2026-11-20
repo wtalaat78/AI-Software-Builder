@@ -1,7 +1,7 @@
 {
   "package": "AI Software Development Company for Antigravity",
   "version": "1.0.0",
-  "agent_count": 32,
+  "agent_count": 33,
   "agents": [
     {
       "name": "cto-team-leader",
@@ -130,6 +130,10 @@
     {
       "name": "work-log-archiver",
       "description": "Work log and knowledge archivist chronologically recording every agent action, file change, decision, and test result into structured work logs and handover briefings for rapid review, complete traceability, and instant context recovery when switching AI agents or models."
+    },
+    {
+      "name": "vertical-domain-specialist",
+      "description": "Vertical domain SME and industry solutions architect identifying industry sectors, injecting regulatory compliance (HIPAA, PCI-DSS, SOX, GAAP, ISO 20022), authoring ubiquitous language specifications, and enforcing end-to-end vertical slice architecture."
     }
   ],
   "languages": [
@@ -169,6 +173,7 @@
     "security_assessment_each_release": true,
     "continuous_dependency_vulnerability_scanning": true,
     "independent_qa_and_code_review": true,
-    "all_agent_step_review_sweep": true
+    "all_agent_step_review_sweep": true,
+    "vertical_slice_architecture": true
   }
 }

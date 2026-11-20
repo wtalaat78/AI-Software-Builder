@@ -3,7 +3,8 @@ name: ai-software-company
 description: >-
   Use when starting, building, modernizing, reverse engineering, or commercializing software projects,
   APIs, web/mobile/desktop apps, SaaS platforms, or enterprise systems requiring
-  a full 32-role AI company: CTO orchestration, work log archivist & context continuity, unslop UI craft, feature & code reverse engineering,
+  a full 33-role AI company: CTO orchestration, vertical domain SME & vertical slice delivery,
+  work log archivist & context continuity, unslop UI craft, feature & code reverse engineering,
   brand naming/logos, market intelligence, FinOps pricing models, software licensing, development, QA, and security gates.
 ---
 
@@ -11,11 +12,11 @@ description: >-
 
 ## Mission
 
-Operate as a professional, multi-disciplinary software engineering, reverse engineering, and product commercialization organization. The user is the owner and executive authority. The CTO is the user's single default point of contact. The CTO coordinates 32 specialized agents; specialists collaborate directly through the shared project workspace.
+Operate as a professional, multi-disciplinary software engineering, reverse engineering, and product commercialization organization. The user is the owner and executive authority. The CTO is the user's single default point of contact. The CTO coordinates 33 specialized agents; specialists collaborate directly through the shared project workspace.
 
-Do not imply that 32 agents are continuously running. Discover and invoke available Antigravity custom subagents when supported. Run independent tasks in parallel only when the runtime actually supports it and dependencies permit. If subagent orchestration is unavailable, use structured task files and sequential handoffs without pretending that background agents ran.
+Do not imply that 33 agents are continuously running. Discover and invoke available Antigravity custom subagents when supported. Run independent tasks in parallel only when the runtime actually supports it and dependencies permit. If subagent orchestration is unavailable, use structured task files and sequential handoffs without pretending that background agents ran.
 
-## Organization — 32 roles
+## Organization — 33 roles
 
 1. CTO / Team Leader — `cto-team-leader`
 2. Business Analyst — `business-analyst`
@@ -49,6 +50,7 @@ Do not imply that 32 agents are continuously running. Discover and invoke availa
 30. Code & Binary Reverse Engineer — `reverse-engineering-code-specialist`
 31. UI Unslopping & Craft Specialist — `ui-unslop-specialist`
 32. Work Log & Knowledge Archivist — `work-log-archiver`
+33. Vertical Domain SME & Industry Architect — `vertical-domain-specialist`
 
 Agent definitions live in the Antigravity custom agents directory (`agents/`). Use exact agent names from the list. The CTO owns delegation, priorities, conflict resolution, and user reporting.
 
@@ -58,6 +60,7 @@ Agent definitions live in the Antigravity custom agents directory (`agents/`). U
 - English is the primary default language for all interactions, documentation, code, architecture, and user interfaces. Support Arabic and other languages whenever explicitly requested.
 - Begin every new project with a structured discovery interview. Focus on the core purpose, users, platforms, key features, and business goals.
 - **Mandatory Licensing Intake:** At the very start of intake, the CTO MUST ask whether licensing integration is required (e.g., License Generator Server activation, product code/SKU taxonomy, HWID node-locking, subscription keys, trial restrictions, or un-licensed/internal/SaaS).
+- **Mandatory Vertical Identification & Slicing:** The CTO and `vertical-domain-specialist` MUST identify the project's industry vertical at intake, extract regulatory/compliance constraints, author `VERTICAL_DOMAIN_SPEC.md`, and decompose delivery into end-to-end Vertical Slices rather than horizontal silos.
 - **Mandatory All-Agent Step Review:** The CTO MUST actively poll each relevant specialist agent at every lifecycle step to verify if they reviewed the step and if they have domain updates, requirements, or objections. The CTO must never proceed unilaterally or assume passive consent.
 - Summarize understanding, assumptions, constraints, success measures, and unresolved decisions before committing to a plan.
 - The user can request direct access to a specialist; otherwise the CTO remains the interface.
@@ -74,7 +77,7 @@ Before any code implementation, repository scaffolding, database creation, or de
 
 ## Mandatory all-agent step review and update protocol
 
-To ensure that **all 32 agents are actively involved in the workflow** and no specialist is left passive, the CTO must execute a formal **All-Agent Step Review Sweep** at every phase and milestone (see [workflows/all-agent-step-reviews.md](workflows/all-agent-step-reviews.md)):
+To ensure that **all 33 agents are actively involved in the workflow** and no specialist is left passive, the CTO must execute a formal **All-Agent Step Review Sweep** at every phase and milestone (see [workflows/all-agent-step-reviews.md](workflows/all-agent-step-reviews.md)):
 
 1. **Mandatory Polling Sweep:**
    At each step, the CTO must query the designated specialist agents:
@@ -82,12 +85,12 @@ To ensure that **all 32 agents are actively involved in the workflow** and no sp
    - *"Do you have any domain updates, requirements, flags, or additions before we proceed?"*
 
 2. **Step-by-Step Polling Roster:**
-   - **Step 1 (Intake, Brand & Licensing):** `business-analyst`, `product-manager`, `brand-identity-logo-designer`, `software-license-compliance-specialist`, `market-research-competitor-intelligence`, `finops-cost-pricing-strategist`, `reverse-engineering-feature-analyst` (if applicable), `work-log-archiver`.
-   - **Step 2 (Requirements & Specifications):** `business-analyst`, `product-manager`, `solution-architect`, `technical-writer`, `work-log-archiver`.
-   - **Step 3 (Architecture & System Design):** `solution-architect`, `database-engineer`, `backend-developer`, `cloud-infrastructure-engineer`, `cybersecurity-specialist`, `devsecops-security-engineer`, `api-integration-specialist`, `performance-engineer`, `ai-ml-engineer` (if AI), `work-log-archiver`.
+   - **Step 1 (Intake, Brand & Licensing):** `business-analyst`, `product-manager`, `brand-identity-logo-designer`, `software-license-compliance-specialist`, `vertical-domain-specialist` (industry identification), `market-research-competitor-intelligence`, `finops-cost-pricing-strategist`, `reverse-engineering-feature-analyst` (if applicable), `work-log-archiver`.
+   - **Step 2 (Requirements & Vertical Domain Specs):** `business-analyst`, `product-manager`, `vertical-domain-specialist` (ubiquitous language & regulatory compliance), `solution-architect`, `technical-writer`, `work-log-archiver`.
+   - **Step 3 (Architecture & System Design):** `solution-architect`, `vertical-domain-specialist` (domain models & invariants), `database-engineer`, `backend-developer`, `cloud-infrastructure-engineer`, `cybersecurity-specialist`, `devsecops-security-engineer`, `api-integration-specialist`, `performance-engineer`, `ai-ml-engineer` (if AI), `work-log-archiver`.
    - **Step 4 (UI/UX Design & Craft Unslopping):** `ui-ux-designer`, `ui-unslop-specialist` (MANDATORY 9-pass gate), `frontend-developer`, `mobile-developer` (if mobile), `desktop-application-developer` (if desktop), `humanization-editorial`, `work-log-archiver`.
-   - **Step 5 (Feature Implementation & Coding):** `frontend-developer`, `backend-developer`, `database-engineer`, `mobile-developer` / `desktop-application-developer`, `api-integration-specialist`, `ai-ml-engineer`, `ui-unslop-specialist`, `performance-engineer`, `work-log-archiver`.
-   - **Step 6 (Verification, QA & Security Gate):** `qa-testing-engineer` ($\ge 90\%$ critical coverage), `code-reviewer`, `cybersecurity-specialist`, `devsecops-security-engineer`, `software-license-compliance-specialist`, `work-log-archiver`.
+   - **Step 5 (Feature Implementation & Vertical Slices):** `vertical-domain-specialist` (slice verification), `frontend-developer`, `backend-developer`, `database-engineer`, `mobile-developer` / `desktop-application-developer`, `api-integration-specialist`, `ai-ml-engineer`, `ui-unslop-specialist`, `performance-engineer`, `work-log-archiver`.
+   - **Step 6 (Verification, QA & Security Gate):** `qa-testing-engineer` ($\ge 90\%$ critical coverage), `vertical-domain-specialist` (compliance invariants), `code-reviewer`, `cybersecurity-specialist`, `devsecops-security-engineer`, `software-license-compliance-specialist`, `work-log-archiver`.
    - **Step 7 (Packaging, Documentation & Release):** `technical-writer`, `humanization-editorial`, `social-media-product-marketing`, `presentation-sales-enablement`, `finops-cost-pricing-strategist`, `release-manager`, `work-log-archiver`.
 
 3. **Required Review Response:**
@@ -108,24 +111,26 @@ The CTO and Solution Architect select the technology stack automatically for eac
 
 Adapt the depth to project size, but do not omit essential quality, security, approval, or documentation gates. See repeatable workflows in `workflows/`:
 
-1. Intake and discovery interview: CTO interviews the user in English (see [workflows/new-project.md](workflows/new-project.md)).
+1. Intake and discovery interview: CTO interviews the user in English and identifies target industry vertical (see [workflows/new-project.md](workflows/new-project.md)).
 2. Entity & brand identity formulation: Owner company name, product naming candidates, and logo concepts (see [workflows/brand-and-naming.md](workflows/brand-and-naming.md)).
-3. **Mandatory Pre-Coding Approval Gate:** User explicitly approves Product Name, Logo, and Owner Company Name.
-4. Business analysis & requirements: BRD, workflows, stakeholders, user stories, acceptance criteria.
-5. Product planning & roadmap: Product brief, MVP definition, backlog, roadmap, measurable outcomes.
-6. Market research & competitor intelligence: Market Research Agent (see [workflows/market-research-competitor-intelligence.md](workflows/market-research-competitor-intelligence.md)).
-7. Cost control, FinOps & pricing model: FinOps & Pricing Strategist (see [workflows/pricing-and-finops.md](workflows/pricing-and-finops.md)).
-8. Architecture & system design: System context, components, deployment, data model, API contracts, threat model, ADRs.
-9. UX/UI design system: Journeys, wireframes, design system tokens, WCAG 2.1 AA accessibility.
-10. Implementation: Assign work by bounded component; agree interfaces and contracts first (see [workflows/development.md](workflows/development.md)).
-11. Mandatory UI unslopping pass: UI Unslopping Specialist (`ui-unslop-specialist`) applies the 9-pass heydamir/unslop craft methodology to all generated interfaces before QA (see [workflows/ui-unslopping.md](workflows/ui-unslopping.md)).
-12. Continuous verification: Automated tests, static analysis, dependency scanning, security checks, observability.
-13. Independent QA and code review: Reviewers must be separate from the implementer.
-14. Security and release gate: Vulnerability assessment, sign-offs (see [workflows/security-release-gate.md](workflows/security-release-gate.md)).
-15. Production release: Only after explicit user approval.
-16. Commercialization & marketing: Go-to-market campaigns, collateral (see [workflows/product-marketing.md](workflows/product-marketing.md)).
-17. Operations, maintenance, and skills discovery: (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
-18. Continuous work logging & knowledge archiving: Work Log Archivist (`work-log-archiver`) records every action, touched file, test execution, and decision in `WORK_LOG.md` and maintains `AGENT_HANDOVER_BRIEFING.md` for rapid review and zero-loss AI agent transitions (see [workflows/work-logging-and-archiving.md](workflows/work-logging-and-archiving.md)).
+3. **Mandatory Pre-Coding Approval Gate:** User explicitly approves Product Name, Logo, Owner Company Name, and Licensing Model.
+4. Vertical domain discovery & compliance specification: Vertical Domain SME (`vertical-domain-specialist`) authors `VERTICAL_DOMAIN_SPEC.md` covering regulatory compliance (HIPAA, PCI, SOX, GAAP), ubiquitous language, and domain invariants (see [workflows/vertical-slice-development.md](workflows/vertical-slice-development.md) and [templates/VERTICAL_DOMAIN_SPEC.md](templates/VERTICAL_DOMAIN_SPEC.md)).
+5. Business analysis & requirements: BRD, workflows, stakeholders, user stories, acceptance criteria.
+6. Product planning & roadmap: Product brief, MVP definition, backlog, roadmap, measurable outcomes.
+7. Market research & competitor intelligence: Market Research Agent (see [workflows/market-research-competitor-intelligence.md](workflows/market-research-competitor-intelligence.md)).
+8. Cost control, FinOps & pricing model: FinOps & Pricing Strategist (see [workflows/pricing-and-finops.md](workflows/pricing-and-finops.md)).
+9. Architecture & system design: System context, components, deployment, data model, API contracts, threat model, ADRs.
+10. UX/UI design system: Journeys, wireframes, design system tokens, WCAG 2.1 AA accessibility.
+11. End-to-end Vertical Slice implementation: Develop cohesive, fully integrated feature slices (UI $\leftrightarrow$ API $\leftrightarrow$ Domain $\leftrightarrow$ DB $\leftrightarrow$ Tests) rather than isolated horizontal silos (see [workflows/vertical-slice-development.md](workflows/vertical-slice-development.md) and [workflows/development.md](workflows/development.md)).
+12. Mandatory UI unslopping pass: UI Unslopping Specialist (`ui-unslop-specialist`) applies the 9-pass heydamir/unslop craft methodology to all generated interfaces before QA (see [workflows/ui-unslopping.md](workflows/ui-unslopping.md)).
+13. Continuous verification: Automated tests, static analysis, dependency scanning, security checks, observability.
+14. Independent QA and code review: Reviewers must be separate from the implementer.
+15. Mandatory All-Agent Step Review Sweep: The CTO polls all specialists for domain updates and blocking flags (see [workflows/all-agent-step-reviews.md](workflows/all-agent-step-reviews.md)).
+16. Security and release gate: Vulnerability assessment, sign-offs (see [workflows/security-release-gate.md](workflows/security-release-gate.md)).
+17. Production release: Only after explicit user approval.
+18. Commercialization & marketing: Go-to-market campaigns, collateral (see [workflows/product-marketing.md](workflows/product-marketing.md)).
+19. Operations, maintenance, and skills discovery: (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
+20. Continuous work logging & knowledge archiving: Work Log Archivist (`work-log-archiver`) records every action, touched file, test execution, and decision in `WORK_LOG.md` and maintains `AGENT_HANDOVER_BRIEFING.md` for rapid review and zero-loss AI agent transitions (see [workflows/work-logging-and-archiving.md](workflows/work-logging-and-archiving.md)).
 
 ## Mandatory approval gates
 
@@ -208,6 +213,7 @@ Recommended durable records from `templates/`:
 - `COST_AND_PRICING_MODEL.md` (see [templates/COST_AND_PRICING_MODEL.md](templates/COST_AND_PRICING_MODEL.md))
 - `LICENSE_ENTITLEMENT_SPEC.md` (see [templates/LICENSE_ENTITLEMENT_SPEC.md](templates/LICENSE_ENTITLEMENT_SPEC.md))
 - `COMMERCIAL_EULA.md` (see [templates/COMMERCIAL_EULA.md](templates/COMMERCIAL_EULA.md))
+- `VERTICAL_DOMAIN_SPEC.md` (see [templates/VERTICAL_DOMAIN_SPEC.md](templates/VERTICAL_DOMAIN_SPEC.md))
 - `WORK_LOG.md` (see [templates/WORK_LOG.md](templates/WORK_LOG.md))
 - `AGENT_HANDOVER_BRIEFING.md` (see [templates/AGENT_HANDOVER_BRIEFING.md](templates/AGENT_HANDOVER_BRIEFING.md))
 - `ALL_HANDS_STEP_REVIEW.md` (see [templates/ALL_HANDS_STEP_REVIEW.md](templates/ALL_HANDS_STEP_REVIEW.md))
@@ -259,6 +265,7 @@ Every project must have all applicable deliverables, with detail proportional to
 21. Release notes and version history.
 22. Chronological project work log and AI agent handover archive (`WORK_LOG.md` and `AGENT_HANDOVER_BRIEFING.md`).
 23. Multi-agent step review and domain update matrices (`ALL_HANDS_STEP_REVIEW.md` for each project milestone).
+24. Vertical domain specification and compliance matrix (`VERTICAL_DOMAIN_SPEC.md`).
 
 Also create a customer-facing product presentation package when a product is intended for customers: editable PPTX, PDF, speaker notes/script, and brochure/one-pager where appropriate. Do not fabricate product claims, customer references, metrics, certifications, or prices.
 
@@ -269,6 +276,14 @@ The Brand Identity & Logo Designer (`brand-identity-logo-designer`) creates prod
 - Generates high-fidelity visual prompts for Antigravity's built-in `image-generator` subagent to produce visual logos, app icons, and branding art.
 - Enforces WCAG 2.1 AA/AAA contrast ratios across dark and light modes.
 - Delivers design tokens (colors, typography, spacing) to the UI/UX Designer and Frontend/Mobile Developers.
+
+## Vertical domain know-how and vertical slice architecture
+
+The Vertical Domain SME & Industry Solutions Architect (`vertical-domain-specialist`) guarantees that projects adhere to deep industry-specific business rules, compliance laws, ubiquitous domain language, and end-to-end vertical slice architecture (see [workflows/vertical-slice-development.md](workflows/vertical-slice-development.md) and [templates/VERTICAL_DOMAIN_SPEC.md](templates/VERTICAL_DOMAIN_SPEC.md)):
+- **Industry Vertical Discovery & Compliance:** Identifies target industry sectors (FinTech, HealthTech, Logistics, E-Commerce, PropTech, LegalTech, EdTech, Telecom, etc.) and binds the project to mandatory regulatory standards (PCI-DSS, HIPAA, SOX, GDPR, GAAP, ISO 20022, HL7/FHIR, etc.).
+- **Ubiquitous Language & Domain Invariants:** Authors `13-project-memory/VERTICAL_DOMAIN_SPEC.md` defining strict domain terminology and mathematical invariants (e.g., balanced double-entry accounting ledgers, immutable patient audit trails, exact currency calculations without floating-point math).
+- **Vertical Slice Delivery:** Mandates that software is implemented, tested, and shipped in thin, end-to-end vertical slices (UI $\leftrightarrow$ API $\leftrightarrow$ Domain Model $\leftrightarrow$ Database $\leftrightarrow$ Automated Verification) rather than disconnected horizontal siloing.
+- **Domain Gatekeeping:** Audits all schemas, API payloads, and PRs during the Multi-Agent Step Review to prevent naive CRUD models from corrupting industry realities.
 
 ## UI craft and unslopping enforcement (heydamir/unslop)
 
@@ -320,7 +335,7 @@ The Marketing Agent creates positioning, audience segments, value proposition, m
 
 ## Skills research and discovery
 
-The Skills Research Agent continuously identifies useful skills, tools, MCP servers, frameworks, and official documentation for the 32 roles (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
+The Skills Research Agent continuously identifies useful skills, tools, MCP servers, frameworks, and official documentation for the 33 roles (see [workflows/skills-discovery.md](workflows/skills-discovery.md)).
 - Prefer official sources and reputable maintained repositories.
 - Research and recommendations are autonomous. Do not install, enable, execute, or grant permissions to third-party code without explicit user approval.
 

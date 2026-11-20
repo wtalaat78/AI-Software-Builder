@@ -5,7 +5,7 @@ param(
     [switch]$Confirm
 )
 $ErrorActionPreference = "Stop"
-if (-not $Confirm) { throw "This removes only the named company skill, 32 company agent files, and 4 company rule files. Re-run with -Confirm after reviewing paths." }
+if (-not $Confirm) { throw "This removes only the named company skill, 33 company agent files, and 4 company rule files. Re-run with -Confirm after reviewing paths." }
 if ($Scope -eq "Workspace") {
     if ([string]::IsNullOrWhiteSpace($WorkspacePath)) { throw "WorkspacePath is required for Workspace scope." }
     $Base = (Resolve-Path -LiteralPath $WorkspacePath).Path
@@ -24,7 +24,7 @@ $companyAgentNames = @(
 "skills-research-discovery","humanization-editorial","market-research-competitor-intelligence",
 "brand-identity-logo-designer","finops-cost-pricing-strategist","software-license-compliance-specialist",
 "reverse-engineering-feature-analyst","reverse-engineering-code-specialist","ui-unslop-specialist",
-"work-log-archiver"
+"work-log-archiver","vertical-domain-specialist"
 )
 foreach ($n in $companyAgentNames) {
     $p = Join-Path $agents "$n.md"
